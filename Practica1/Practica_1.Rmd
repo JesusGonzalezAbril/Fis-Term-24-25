@@ -1,0 +1,164 @@
+---
+title: "Práctica 1: Presión de vapor de agua frente a temperatura a altas presiones"
+author: "Jesús González Abril, Juan Antonio Molina Blázquez, Manuel Pividal Otero"
+date: "18/02/2025"
+output: 
+  pdf_document: 
+    number_sections: true
+    fig_caption: true
+header-includes:
+- \usepackage{titling}
+- \usepackage{float}
+- \usepackage{subcaption}
+- \floatplacement{table}{H}
+- \usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+- \usepackage{lipsum}
+- \pretitle{\begin{center}\huge \bfseries Física Térmica \vspace{0.5cm} \\ \Large}
+- \posttitle{\end{center}}
+- \preauthor{\begin{center} \Large}
+- \postauthor{\vspace{0.5cm} \\ Profesor Giuseppe Raguní \end{center}}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Objetivo
+
+- Determinar el calor latente de vaporización a $100^{\circ} C$ del agua.
+
+# Introducción
+
+Usaremos la ecuación de Clapeyron para cambios de fase de primer orden:
+\begin{align}
+\frac{dp}{dT}=\frac{L}{T\Delta\mho}
+\end{align}
+Tenemos que $\Delta\mho=\mho_v-\mho_l$, donde $\mho_v$ es el volumen molar del vapor de agua y $\mho_l$ el del agua líquida. Podemos considerar $\mho_v \gg \mho_l$ y por tanto $\Delta\mho\approx\mho_v$, por lo que la expresión queda
+\begin{align}
+\frac{dp}{dT}=\frac{L}{T\mho_v}
+\end{align}
+Si consideramos el vapor de agua como un gas ideal tendremos que
+\begin{align}
+\mho_v=\frac{RT}{p}
+\end{align}
+Y sustituyendo en la ecuación (2):
+\begin{align}
+\frac{dp}{dT}=\frac{Lp}{RT^2}
+\end{align}
+Una ecuación de variables separables cuya solución es:
+\begin{align}
+\log p=-\frac{L}{RT}+K
+\end{align}
+
+\clearpage
+
+# Dispositivo experimental y metodología
+
+## Instrumentación
+
+- Cámara cilíndrica de paredes gruesas con manómetro.
+- Multímetro con sonda térmica.
+- Manta calefactora.
+- Cuña de madera para dar más estabilidad al montaje.
+
+## Montaje experimental
+
+<!-- ![Montaje experimental](logo.png){width="200"} -->
+ 
+## Método de medida 
+
+\begin{enumerate}
+    \item En primer lugar nos informamos de si es necesario reemplazar el agua del interior del cilindro. Si es así, debemos recordar que el agua a usar debe ser agua purificada. Una vez reemplazada nos cercioramos de que el tapón está bien puesto.
+    \item Una vez el cilindro esté lleno de agua y situado sobre la manta calefactora, conectamos esta y dejamos que se caliente hasta los $100^\circ C$. A partir de ese momento debemos empezar a tomar medidas tanto de la presión como de la temperatura.
+    \item Cuando la temperatura llegue a los $200^\circ C \sim 220^\circ C$ desconectamos la manta calefactora y según se va enfriando hasta los $100^\circ C$ seguimos tomando medidas.
+    \item Si sobra tiempo se realiza de nuevo el proceso.
+\end{enumerate}
+
+# Medidas
+
+Ejemplo de tabla:
+
+```{r}
+p <- c(1,2,3,4)
+T <- c(7,8,9,10.3)
+
+# Tabla
+data <- data.frame(p,T)
+colnames(data) <- c("$p$ / Pa","$T$ / K")
+  
+knitr::kable(
+  data,
+  caption="Medidas de presión y temperatura",
+  booktabs = TRUE,
+  escape = FALSE,
+  row.names = FALSE,
+  align="c"
+)
+```
+
+Falta ver cómo ponemos los errores instrumentales
+
+\clearpage
+
+# Análisis
+
+A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuación (5), obtiendo lo siguiente:
+
+```{r, echo=FALSE, fig.align='center', fig.cap="Ajuste lineal de $\\log p$ frente a $\\frac{1}{T}$"}
+
+# Ajuste lineal
+logp <- log(p)
+T_inversa <- 1/T
+
+modelo_lineal <- lm(logp ~ T_inversa)
+resumen <- summary(modelo_lineal)
+pendiente <- modelo_lineal$coefficients[[2]]
+inc_pendiente <- resumen$coefficients[2,2]
+ordenada <- modelo_lineal$coefficients[[1]]
+
+# Graficamos los datos y la línea de ajuste
+
+titulo <- expression(log(p) ~ "frente a" ~ frac(1, T))
+plot(1/T, log(p), main = titulo, ylab ="log(p)", xlab = expression(frac(1,T) ~ " / " ~ K^{-1}))
+abline(modelo_lineal, col = "coral")
+```
+
+Pendiente: $m=-\frac{L}{R} = `r pendiente`\ K$
+
+Incertidumbre pendiente: $\Delta m =`r inc_pendiente` \ K$
+
+¡Cuidado con las cifras significativas!
+
+```{r}
+R <- 8.3145
+
+L <- -pendiente*R
+inc_L <- inc_pendiente*R
+
+```
+
+# Resultados
+
+Si ahora suponemos $R$ conocido con un valor $R=`r R`\ \frac{J}{K \text{mol}}$ y sin error, podemos obtener $L$ a partir de la pendiente de la recta. También podemos calcular su incertidumbre $\Delta L$ a partir de $\Delta m$.
+\[
+L = -mR = `r L`\ \frac{kJ}{\text{mol}}
+\]
+
+\[
+\Delta L = \Delta mR = `r inc_L`\ \frac{kJ}{\text{mol}}
+\]
+
+Expresándolo correctamente:
+
+\[
+L = `r round(L,2)` \pm `r signif(inc_L,2)` \ \frac{kJ}{\text{mol}}
+\]
+
+\[
+L_{teorico} = 40 \ \frac{kJ}{\text{mol}}
+\]
+
+
+# Discusión y conclusiones
+
+\lipsum[1]

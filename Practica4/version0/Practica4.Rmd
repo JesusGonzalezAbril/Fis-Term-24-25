@@ -1,0 +1,276 @@
+---
+title: "Práctica 4: Medida del calor específico del gas ideal"
+author: "Jesús González Abril, Juan Antonio Molina Blázquez, Manuel Pividal Otero"
+date: "04/02/2025"
+output: 
+  pdf_document: 
+    number_sections: true
+    fig_caption: true
+header-includes:
+- \usepackage{titling}
+- \usepackage{float}
+- \usepackage{subcaption}
+- \floatplacement{table}{H}
+- \usepackage{lipsum}
+- \usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+- \pretitle{\begin{center}\huge \bfseries Física Térmica \vspace{0.5cm} \\ \Large}
+- \posttitle{\end{center}}
+- \preauthor{\begin{center} \Large}
+- \postauthor{\vspace{0.5cm} \\ Profesor Giuseppe Raguní \end{center}}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Objetivos
+
+- Determinación del calor específico del aire a presión constante y a volumen constante.
+- Comprobación de la relación de Mayer y del valor del coeficiente de dilatación adiabática para un gas ideal.
+
+# Marco teórico
+
+La capacidad calorífica \( C \) de una sustancia viene expresada por:
+
+\begin{equation} 
+  C = \frac{dQ}{dT}
+\end{equation}
+
+Normalmente un proceso no viene definido completamente por la variación de temperatura, sino que se exige el conocimiento de otros parámetros macroscópicos. La capacidad calorífica tiene un valor definido sólo para un proceso definido. Los dos procesos principales son los de presión constante y volumen constante.
+
+La capacidad calorífica a volumen constante se expresa del modo:
+\begin{equation} 
+  C_V = \left( \frac{dQ}{dT} \right)_V
+\end{equation} 
+
+Del mismo modo, la capacidad calorífica a presión constante es:
+
+\begin{equation} 
+  C_P = \left( \frac{dQ}{dT} \right)_P 
+\end{equation} 
+
+Si tomamos como unidad de cantidad de sustancia el mol, dividiendo por el número de moles \( n \) obtenemos los calores molares:
+
+\begin{equation} 
+  \overline{C} = \frac{1}{n} \frac{dQ}{dT}
+\end{equation} 
+
+Según la teoría, el calor molar a volumen constante de un gas ideal viene dado por:
+
+\begin{equation} 
+  \overline{C}_V = \frac{f}{2} R 
+\end{equation} 
+
+donde \( f \) es el número de grados de libertad del gas ideal estudiado. Para el gas ideal monoatómico \( f = 3 \) y para el diatómico \( f = 5 \).
+
+De acuerdo con la Primera Ley de la Termodinámica y la ecuación de estado para gases ideales, la relación de Mayer establece que:
+
+\begin{equation} 
+  \overline{C}_{P} - \overline{C}_{V} = R
+\end{equation} 
+
+donde \( R \) es la constante universal de los gases ideales, \( R = 8,31 \, \text{J/(K mol)} \).
+
+Por otro lado, el coeficiente de dilatación adiabática del gas ideal viene dado por:
+
+\begin{equation} 
+  \gamma = \frac{C_{P}}{C_{V}} = \frac{f + 2}{f}
+\end{equation} 
+
+## Calor específico molar a volumen constante
+
+Para la medida de \( C_V \) se calienta el aire encerrado en una botella de volumen \( V \) mediante el calor producido por una corriente eléctrica \( I \) y un potencial constante \( V_e \) durante un tiempo \( t \). Por lo tanto el calor aplicado al aire será:
+
+\begin{equation} 
+  Q = V_e I t
+\end{equation} 
+
+Para una transformación isócola el aumento de temperatura \( \Delta T \) y el aumento de presión \( \Delta P \) están relacionados mediante:
+
+\begin{equation} 
+ \Delta T = \frac{V}{nR} \Delta P
+\end{equation}  
+
+Por tanto:
+
+\begin{equation} 
+  \overline{C}_{V} = \frac{1}{n} \left( \frac{Q}{\Delta T} \right)_V = \frac{V_e I R}{V \Delta P}
+\end{equation} 
+
+La medida de \( \Delta P \) frente al tiempo \( t \) que se aplica la corriente:
+
+\begin{equation} 
+  \Delta P = \frac{V_e I R}{V \overline{C}_{V}} t = a t
+\end{equation} 
+
+permite obtener \( C_V \) de la pendiente \( a = V_e I R / V \overline{C}_{V} \) obtenida por mínimos cuadrados.
+
+## Calor específico molar a presión constante
+
+Para la medida de \( C_P \) se calienta el aire, permitiendo el aumento de volumen del gas empujando el émbolo de la jeringuilla, de tal manera que se mantenga la presión igual a la atmosférica en todo momento, \( P = P_{\text{atm}} \). Para una transformación isobárica, el aumento de temperatura \( \Delta T \) y el aumento de volumen \( \Delta V \) vienen relacionados por:
+
+\begin{equation} 
+  \Delta T = \frac{P}{nR} \Delta V
+\end{equation} 
+
+Por tanto, el calor específico molar a presión constante quedará expresado como:
+
+\begin{equation} 
+  \overline{C}_{P} = \frac{1}{n} \left( \frac{Q}{\Delta T} \right)_P = \frac{V_e I R}{P \Delta V}
+\end{equation} 
+
+La medida de \( \Delta V \) frente al tiempo \( t \) que se aplica la corriente:
+
+\begin{equation} 
+  \Delta V = \frac{V_e I R}{P \overline{C}_{P}} t = a t
+\end{equation} 
+
+permite obtener \( C_P \) de la pendiente \( a = V_e I R / P \overline{C}_{P} \) obtenida por mínimos cuadrados.
+
+# Dispositivo experimental y metodología
+
+## Montaje experimental
+
+Para ambos experimentos utilizaremos el mismo dispositivo. Tenemos una botella (con su volumen previamente medido, \( V = 5 \, \text{l} \)). En el tapón de la misma viene acoplada una llave de paso para poder mantener el sistema a volumen o presión constante. En la llave están conectadas dos gomas: una conectada a una jeringuilla (con la que mediremos la variación de volumen) y la otra goma conectada a un manómetro para medir la presión.
+
+La resistencia calefactora va conectada a un circuito de corriente alterna, con potencial e intensidad constante, conectada a su vez a un temporizador, por lo que podremos medir la cantidad de calor y un pulsador para controlar la cantidad de tiempo que aplicamos ese calor.
+
+![Esquema experimental](figuras/esquema_experimental.png){width="300"}
+
+## Metodología
+
+### Experiencia 1: Medida del calor específico molar a volumen constante
+
+1. Anota la temperatura marcada por el termómetro digital del laboratorio.
+
+2. Durante esta experiencia no se variará el volumen de aire en la jeringuilla. Mantenla en todo momento a un volumen de 0 ml. Puede usarse la llave en forma de “T” para aislar la jeringuilla de la botella.
+
+3. Suelta la goma que va al manómetro y espera unos minutos hasta que la presión y temperatura del aire de la botella se equilibren con las atmosféricas.
+
+4. Mide y anota la presión inicial marcada por el manómetro.
+
+5. Ajusta la goma a la salida del manómetro que está sobre el depósito de líquido. Si el aire de la botella está equilibrado, la lectura del manómetro no debería cambiar de forma apreciable.
+
+6. Cerramos el circuito eléctrico con el pulsador, apretando durante un tiempo determinado. El procedimiento de medición debe ser lo más breve posible (unas décimas de segundo, menos de alrededor de un segundo como máximo). El tiempo que mantengamos el dedo pulsado quedará grabado en el temporizador. Observa cómo la barra de líquido rojo va ascendiendo por el manómetro mientras aplicamos calor. Anotamos la presión máxima medida para poder obtener la variación de presión \( \Delta P \), restando a la presión máxima la medida en el punto 4.
+
+7. Podemos repetir el proceso para tiempos mayores y obtener distintas medidas de \( \Delta P \) vs \( t \). Antes de cada nueva medida, conviene desconectar la goma del manómetro y permitir que el aire de la botella vuelva a las condiciones ambientales, durante aproximadamente un minuto.
+
+8. Elabora una tabla donde anotes: tiempo de calentamiento, presión inicial marcada por el manómetro, presión máxima marcada por el manómetro, voltaje y corriente medidos por los multímetros durante el tiempo de calentamiento. Conviene realizar entorno a 10 mediciones.
+
+### Experiencia 2: Medida del calor específico molar a presión constante
+
+1. Anota la presión atmosférica marcada por el manómetro digital del laboratorio.
+
+2. Durante esta experiencia sí se variará el volumen de aire en la jeringuilla. Usa la llave en forma de “T” para conectar de nuevo la jeringuilla de la botella, si es que la habías desconectado.
+
+3. Suelta la goma que va al manómetro y espera unos minutos hasta que la presión y temperatura del aire de la botella se equilibren con las atmosféricas.
+
+4. Mide y anota la presión inicial marcada por el manómetro.
+
+5. Ajusta la goma a la salida del manómetro que está sobre el depósito de líquido. Si el aire de la botella está equilibrado, la lectura del manómetro no debería cambiar de forma apreciable.
+
+6. Al calentar el gas, la presión en la botella comenzará a aumentar. Como se quiere determinar la capacidad calorífica a presión constante, hay que compensar el aumento de presión aumentando el volumen a través de la jeringa. Esta combinación es algo complicada de realizar, por lo que debes proceder de la siguiente manera.
+
+7. Antes de calentar, aumenta el volumen de la jeringuilla en 1 ml. Verás como la presión en el manómetro disminuye. La estrategia consistirá en aplicar corriente para calentar durante el tiempo suficiente como para que la presión máxima del manómetro vuelva al valor anotado en el punto 4, o muy próxima. Para cada volumen, realiza varias medidas de tiempo (al menos 3) que resulten en presiones máximas próximas a la inicial.
+
+8. Antes de cada nueva medida, conviene desconectar la goma del manómetro, volver a poner el volumen de la jeringuilla a 0 ml y permitir que el aire de la botella vuelva a las condiciones ambientales, durante aproximadamente un minuto.
+
+9. Podemos repetir el proceso para volúmenes mayores (aumentando el volumen de la jeringuilla 1 ml más cada vez) y obtener distintas medidas de \( \Delta V \) vs \( t \).
+
+10. Elabora una tabla donde anotes: aumento de volumen, tiempos de calentamiento necesarios para recuperar la presión inicial, voltaje y corriente medidos por los multímetros durante el tiempo de calentamiento. Conviene llegar a un \( \Delta V \) máximo de unos 4 o 5 ml.
+
+\clearpage
+
+# Medidas
+
+SO TO SPEAK
+
+```{r}
+# Datos recogidos
+X <- c(1,2,3,4,5,6,7)
+Y <- c(1,2,3,4,5,6,7) 
+
+# Tabla
+data <- data.frame(X,Y)
+colnames(data) <- c("Medida","m / g")
+  
+knitr::kable(
+  data,
+  caption="SO TO SPEAK",
+  booktabs = TRUE,
+  escape = FALSE,
+  row.names = FALSE,
+  align="c"
+)
+```
+
+\clearpage
+
+# Análisis de los datos
+
+## Experiencia 1:
+
+1. Representa \( \Delta P \) frente a \( t \) y realiza un ajuste por mínimos cuadrados, obteniendo el valor e incertidumbre de la pendiente.
+
+2. Halla el valor del calor específico molar a volumen constante y su incertidumbre a partir de la pendiente obtenida.
+
+```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste de Y sobre X"}
+# Datos recogidos
+X <- c(1,2,3,4,5,6,7)
+Y <- c(1,2,3,4,5,6,7) 
+
+# Ajuste lineal
+modelo_lineal <- lm(Y ~ X)
+resumen <- summary(modelo_lineal)
+pendiente <- modelo_lineal$coefficients[[2]]
+inc_pendiente <- resumen$coefficients[2,2]
+ordenada <- modelo_lineal$coefficients[[1]]
+inc_ordenada <- resumen$coefficients[1,2]
+
+# Graficamos los datos y la línea de ajuste
+
+titulo <- "Ajuste lineal de Y sobre X"
+plot(X,Y, main = titulo, ylab =expression(Y ~ (cm^{-2})), xlab =expression(X ~ (s^{-1})))
+abline(modelo_lineal, col = "coral")
+```
+
+\clearpage
+
+## Experiencia 2:
+
+1. Representa \( \Delta V \) frente a \( t \) y realiza un ajuste por mínimos cuadrados, obteniendo el valor e incertidumbre de la pendiente.
+
+2. Halla el valor del calor específico molar a presión constante y su incertidumbre a partir de la pendiente obtenida.
+
+```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste de Y sobre X"}
+# Datos recogidos
+X <- c(1,2,3,4,5,6,7)
+Y <- c(1,2,3,4,5,6,7) 
+
+# Ajuste lineal
+modelo_lineal <- lm(Y ~ X)
+resumen <- summary(modelo_lineal)
+pendiente <- modelo_lineal$coefficients[[2]]
+inc_pendiente <- resumen$coefficients[2,2]
+ordenada <- modelo_lineal$coefficients[[1]]
+inc_ordenada <- resumen$coefficients[1,2]
+
+# Graficamos los datos y la línea de ajuste
+
+titulo <- "Ajuste lineal de Y sobre X"
+plot(X,Y, main = titulo, ylab =expression(Y ~ (cm^{-2})), xlab =expression(X ~ (s^{-1})))
+abline(modelo_lineal, col = "coral")
+```
+
+\clearpage
+
+# Resultados
+SO TO SPEAK
+
+# Discusión y conclusiones de los resultados
+
+Obtén \( C_V \) y \( C_P \), así como las magnitudes del gas ideal que dependen de éstos, incluyendo el análisis de su incertidumbre y el error con respecto a los valores teóricos.
+
+Ten en consideración si \( I \) y \( V_e \) se mantienen constantes durante las mediciones.
+
+Analiza críticamente los posibles factores experimentales que puedan contribuir a una mala determinación de \( C_V \) y \( C_P \), si éste fuera el caso.
