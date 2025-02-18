@@ -166,4 +166,6 @@ L_{teorico} = 40 \ \frac{kJ}{\text{mol}}
 
 # Discusión y conclusiones
 
+Giusseppe
+
 \lipsum[1]
