@@ -11,7 +11,7 @@ header-includes:
 - \usepackage{float}
 - \usepackage{subcaption}
 - \floatplacement{table}{H}
-- \usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+#- \usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
 - \usepackage{lipsum}
 - \pretitle{\begin{center}\huge \bfseries Física Térmica \vspace{0.5cm} \\ \Large}
 - \posttitle{\end{center}}
@@ -79,8 +79,13 @@ Una ecuación de variables separables cuya solución es:
 Ejemplo de tabla:
 
 ```{r}
-p <- c(1,2,3,4,5,6)
-T <- c(7,8,9,10.3)
+p <- 1:22 * 10^5
+T <- c(110,129,140,152,159,165,171,176,182,185,190,194,198,201,204,208,211,214,216,218,221,224) + 273.15
+T_ <- c(104,127,140,151,159,166,172,178,183,187,191,195,199,202,206,209,211,213,217,219,221,224) + 273.15
+err_T = 1
+err_p = 1 * 10^5
+Tmedia = (T_+T)/2
+
 
 # Tabla
 data <- data.frame(p,T)
@@ -108,7 +113,7 @@ A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuaci�
 
 # Ajuste lineal
 logp <- log(p)
-T_inversa <- 1/T
+T_inversa <- 1/Tmedia
 
 modelo_lineal <- lm(logp ~ T_inversa)
 resumen <- summary(modelo_lineal)
@@ -119,7 +124,7 @@ ordenada <- modelo_lineal$coefficients[[1]]
 # Graficamos los datos y la línea de ajuste
 
 titulo <- expression(log(p) ~ "frente a" ~ frac(1, T))
-plot(1/T, log(p), main = titulo, ylab ="log(p)", xlab = expression(frac(1,T) ~ " / " ~ K^{-1}))
+plot(1/Tmedia, log(p), main = titulo, ylab ="log(p)", xlab = expression(frac(1,T) ~ " / " ~ K^{-1}))
 abline(modelo_lineal, col = "coral")
 ```
 
@@ -132,8 +137,8 @@ Incertidumbre pendiente: $\Delta m =`r inc_pendiente` \ K$
 ```{r}
 R <- 8.3145
 
-L <- -pendiente*R
-inc_L <- inc_pendiente*R
+L <- -pendiente*R / 1000
+inc_L <- inc_pendiente*R / 1000
 
 ```
 
