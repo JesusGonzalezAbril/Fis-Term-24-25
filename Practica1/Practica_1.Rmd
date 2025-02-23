@@ -63,9 +63,20 @@ Una ecuación de variables separables cuya solución es:
 
 ## Montaje experimental
 
-![Montaje experimental](figuras/montaje.jpg){width="200"} 
-
-![Multímetro](figuras/multimetro.jpg){width="200"} 
+\begin{figure}[H]
+  \begin{subfigure}{.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figuras/montaje.jpg}
+    \caption{Camará cilíndrica y manómetro.}
+  \end{subfigure}%
+  \hfill 
+  \begin{subfigure}{.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figuras/multimetro.jpg}
+    \caption{Multímetro.}
+  \end{subfigure}%
+  \caption{Montaje experimental}
+\end{figure}
 
 ## Método de medida 
 
@@ -74,6 +85,8 @@ Una ecuación de variables separables cuya solución es:
     \item A partir de ese momento empezamos a tomar medidas tanto de la presión medida por el manómetro como de la temperatura medida por el multímetro.
     \item Cuando la presión llegue a $22\  \text{bar}$ desconectamos la manta calefactora y según se va enfriando hasta volver a $1\ \text{bar}$ seguimos tomando medidas.
 \end{enumerate}
+
+\clearpage
 
 # Medidas
 
@@ -100,6 +113,8 @@ knitr::kable(
   align="c"
 )
 ```
+
+\clearpage
 
 Si tomamos como temperatura el promedio de ambas temperaturas $T=\frac{T_{\text{subida}}+T_{\text{bajada}}}{2}$ y expresamos los datos en unidades del SI obtenemos la siguiente tabla, a partir de la cual realizaremos el ajuste por mínimos cuadrados.
 
@@ -136,13 +151,13 @@ inc_ordenada <- resumen$coefficients[1,2]
 ```
 A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuación (5), obtiendo lo siguiente:
 
-Pendiente: $m=-\frac{L}{R} = `r pendiente`\ K$
+- Pendiente: $m=-\frac{L}{R} = `r pendiente`\ K$
 
-Incertidumbre pendiente: $\Delta m =`r inc_pendiente` \ K$
+- Incertidumbre pendiente: $\Delta m =`r inc_pendiente` \ K$
 
-Ordenada: $K = `r ordenada`$
+- Ordenada: $K = `r ordenada`$
 
-Incertidumbre ordenada: $\Delta K =`r inc_ordenada`$
+- Incertidumbre ordenada: $\Delta K =`r inc_ordenada`$
 
 
 ```{r, echo=FALSE, fig.align='center', fig.cap="Ajuste lineal de $\\log p$ frente a $\\frac{1}{T}$"}
@@ -162,6 +177,8 @@ L <- -pendiente*R / 1000
 inc_L <- inc_pendiente*R / 1000
 
 ```
+
+\clearpage
 
 # Resultados
 
