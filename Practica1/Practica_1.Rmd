@@ -192,13 +192,12 @@ L = -mR = `r L`\ \frac{kJ}{\text{mol}}
 \]
 
 Expresándolo correctamente:
-
 \[
 L = `r round(L,2)` \pm `r signif(inc_L,2)` \ \frac{kJ}{\text{mol}}
 \]
 Por otro lado, el valor tabulado de la entalpía de vaporización del agua es
 \[
-L_{teorico} = 40.656 \ \frac{kJ}{\text{mol}}
+L_{teórico} = 40.656 \ \frac{kJ}{\text{mol}}
 \]
 según Wikipedia.
 
@@ -208,13 +207,13 @@ según Wikipedia.
 epsilon <- abs((40.656-L)/40.656)
 ```
 
-En primer lugar, aunque el valor teorico esperado no entre dentro del rango del valor obtenido experimentalmente, podemos dar por satisfactorio el experimento, puesto que el error relativo respecto al valor esperado es
+En primer lugar, aunque el valor teórico esperado no entre dentro del rango del valor obtenido experimentalmente, podemos dar por satisfactorio el experimento, puesto que el error relativo respecto al valor esperado es
 \[
-\epsilon = |\frac{L_{teorico}-L}{L_{teorico}}|\approx `r signif(epsilon,2)`
+\epsilon = |\frac{L_{teórico}-L}{L_{teórico}}|\approx `r signif(epsilon,2)`
 \]
 es decir, en torno al 2%.
 
-En cuanto al experimento, el montaje es realmente sencillo y las aproximaciones teóricas realizadas entran dentro de lo razonable, por lo que las fuentes de error principales vienen de la limitación del instrumental empleado. En concreto, el multímetro empleado solo era capaz de registrar variaciones de $1^\circ C$, y en ocasiones observabamos que la temperatura aumentaba unos instantes después de alcanzar una presión de interés en bares. Por otro lado, el manómetro solo registraba cambios de $1\ \text{bar}$, por lo que esta era sin duda la mayor limitación en cuanto a sensibilidad.
+En cuanto al experimento, el montaje es realmente sencillo y las aproximaciones teóricas realizadas entran dentro de lo razonable, por lo que las fuentes de error principales vienen de la limitación del instrumental empleado. En concreto, el multímetro empleado solo era capaz de registrar variaciones de $1^\circ C$, y en ocasiones observábamos que la temperatura aumentaba unos instantes después de alcanzar una presión de interés en bares. Por otro lado, el manómetro solo registraba cambios de $1\ \text{bar}$, por lo que esta era, sin duda, la mayor limitación en cuanto a sensibilidad.
 
 También es importante señalar las diferencias que se pueden observar entre las temperaturas de subida y bajada. Para intentar disminuir el error introducido por este hecho se han promediado ambas medidas de temperatura, pero sin duda constituye otra limitación importante en cuanto a la calidad de los resultados obtenidos.
 
