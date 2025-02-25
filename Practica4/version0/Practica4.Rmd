@@ -183,20 +183,26 @@ La resistencia calefactora va conectada a un circuito de corriente alterna, con 
 
 # Medidas
 
-SO TO SPEAK
+Volumen constante 10 L
 
 ```{r}
+volumen <- 10*1e-3
+voltaje <- 4.81
+intensidad <- 0.26
+  
+Tlab <- 18.9 + 273.15
+  
 # Datos recogidos
-X <- c(1,2,3,4,5,6,7)
-Y <- c(1,2,3,4,5,6,7) 
+t <- c(0.468, 0.863, 1.214, 1.617, 2.071, 2.639, 3.345, 4.069, 4.537, 5.253)
+P <- c(0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1) 
 
 # Tabla
-data <- data.frame(X,Y)
-colnames(data) <- c("Medida","m / g")
+data <- data.frame(t,P)
+colnames(data) <- c("tiempo","var presion")
   
 knitr::kable(
   data,
-  caption="SO TO SPEAK",
+  caption="tiempo y variacion presion",
   booktabs = TRUE,
   escape = FALSE,
   row.names = FALSE,
@@ -215,12 +221,12 @@ knitr::kable(
 2. Halla el valor del calor específico molar a volumen constante y su incertidumbre a partir de la pendiente obtenida.
 
 ```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste de Y sobre X"}
-# Datos recogidos
-X <- c(1,2,3,4,5,6,7)
-Y <- c(1,2,3,4,5,6,7) 
+
+t <- t[1:5]
+P <- P[1:5]
 
 # Ajuste lineal
-modelo_lineal <- lm(Y ~ X)
+modelo_lineal <- lm(P ~ t)
 resumen <- summary(modelo_lineal)
 pendiente <- modelo_lineal$coefficients[[2]]
 inc_pendiente <- resumen$coefficients[2,2]
@@ -229,9 +235,11 @@ inc_ordenada <- resumen$coefficients[1,2]
 
 # Graficamos los datos y la línea de ajuste
 
-titulo <- "Ajuste lineal de Y sobre X"
-plot(X,Y, main = titulo, ylab =expression(Y ~ (cm^{-2})), xlab =expression(X ~ (s^{-1})))
+titulo <- "Ajuste lineal de P sobre t"
+plot(t,P, main = titulo, ylab =expression(Y ~ (cm^{-2})), xlab =expression(X ~ (s^{-1})))
 abline(modelo_lineal, col = "coral")
+
+Cv <- voltaje*intensidad/(volumen*pendiente*200)
 ```
 
 \clearpage
@@ -241,26 +249,6 @@ abline(modelo_lineal, col = "coral")
 1. Representa \( \Delta V \) frente a \( t \) y realiza un ajuste por mínimos cuadrados, obteniendo el valor e incertidumbre de la pendiente.
 
 2. Halla el valor del calor específico molar a presión constante y su incertidumbre a partir de la pendiente obtenida.
-
-```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste de Y sobre X"}
-# Datos recogidos
-X <- c(1,2,3,4,5,6,7)
-Y <- c(1,2,3,4,5,6,7) 
-
-# Ajuste lineal
-modelo_lineal <- lm(Y ~ X)
-resumen <- summary(modelo_lineal)
-pendiente <- modelo_lineal$coefficients[[2]]
-inc_pendiente <- resumen$coefficients[2,2]
-ordenada <- modelo_lineal$coefficients[[1]]
-inc_ordenada <- resumen$coefficients[1,2]
-
-# Graficamos los datos y la línea de ajuste
-
-titulo <- "Ajuste lineal de Y sobre X"
-plot(X,Y, main = titulo, ylab =expression(Y ~ (cm^{-2})), xlab =expression(X ~ (s^{-1})))
-abline(modelo_lineal, col = "coral")
-```
 
 \clearpage
 
