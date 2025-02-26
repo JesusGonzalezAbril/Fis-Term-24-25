@@ -127,6 +127,8 @@ La medida de \( \Delta V \) frente al tiempo \( t \) que se aplica la corriente:
 
 permite obtener \( C_P \) de la pendiente \( a = V_e I R / P \overline{C}_{P} \) obtenida por mínimos cuadrados.
 
+\clearpage
+
 # Dispositivo experimental y metodología
 
 ## Montaje experimental
@@ -179,34 +181,7 @@ La resistencia calefactora va conectada a un circuito de corriente alterna, con 
 
 10. Elabora una tabla donde anotes: aumento de volumen, tiempos de calentamiento necesarios para recuperar la presión inicial, voltaje y corriente medidos por los multímetros durante el tiempo de calentamiento. Conviene llegar a un \( \Delta V \) máximo de unos 4 o 5 ml.
 
-\clearpage
-
-# Medidas
-
-SO TO SPEAK
-
-```{r}
-# Datos recogidos
-X <- c(1,2,3,4,5,6,7)
-Y <- c(1,2,3,4,5,6,7) 
-
-# Tabla
-data <- data.frame(X,Y)
-colnames(data) <- c("Medida","m / g")
-  
-knitr::kable(
-  data,
-  caption="SO TO SPEAK",
-  booktabs = TRUE,
-  escape = FALSE,
-  row.names = FALSE,
-  align="c"
-)
-```
-
-\clearpage
-
-# Análisis de los datos
+## Metodología para el análisis de los datos
 
 ## Experiencia 1:
 
@@ -214,41 +189,55 @@ knitr::kable(
 
 2. Halla el valor del calor específico molar a volumen constante y su incertidumbre a partir de la pendiente obtenida.
 
-```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste de Y sobre X"}
-# Datos recogidos
-X <- c(1,2,3,4,5,6,7)
-Y <- c(1,2,3,4,5,6,7) 
-
-# Ajuste lineal
-modelo_lineal <- lm(Y ~ X)
-resumen <- summary(modelo_lineal)
-pendiente <- modelo_lineal$coefficients[[2]]
-inc_pendiente <- resumen$coefficients[2,2]
-ordenada <- modelo_lineal$coefficients[[1]]
-inc_ordenada <- resumen$coefficients[1,2]
-
-# Graficamos los datos y la línea de ajuste
-
-titulo <- "Ajuste lineal de Y sobre X"
-plot(X,Y, main = titulo, ylab =expression(Y ~ (cm^{-2})), xlab =expression(X ~ (s^{-1})))
-abline(modelo_lineal, col = "coral")
-```
-
-\clearpage
-
 ## Experiencia 2:
 
 1. Representa \( \Delta V \) frente a \( t \) y realiza un ajuste por mínimos cuadrados, obteniendo el valor e incertidumbre de la pendiente.
 
 2. Halla el valor del calor específico molar a presión constante y su incertidumbre a partir de la pendiente obtenida.
 
-```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste de Y sobre X"}
+\clearpage
+
+# Medidas y análisis de los datos
+
+## Experiencia 1:
+
+Volumen constante 10 L
+
+```{r}
+volumen <- 10*1e-3 #m^3
+voltaje <- 4.81 # Volttttios
+intensidad <- 0.26 # Amperios
+Tlab <- 18.9 + 273.15 # Kelvin
+Plab <- 1012.6*1e2 # Pascales
+R <- 8.314472 #Pa m^3/mol K
+  
 # Datos recogidos
-X <- c(1,2,3,4,5,6,7)
-Y <- c(1,2,3,4,5,6,7) 
+t <- c(0.468, 0.863, 1.214, 1.617, 2.071, 2.639, 3.345, 4.069, 4.537, 5.253)
+P <- c(0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1) 
+
+# Tabla
+data <- data.frame(t,P)
+colnames(data) <- c("Tiempo / s","Presión / mbar")
+  
+knitr::kable(
+  data,
+  caption="Tiempo que se ha mantenido el circuito cerrado para hacer cada variación de presión",
+  booktabs = TRUE,
+  escape = FALSE,
+  row.names = FALSE,
+  align="c"
+)
+```
+
+A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuación (11), 
+
+```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste de Y sobre X"}
+
+t <- t[1:5]
+P <- P[1:5]
 
 # Ajuste lineal
-modelo_lineal <- lm(Y ~ X)
+modelo_lineal <- lm(P ~ t)
 resumen <- summary(modelo_lineal)
 pendiente <- modelo_lineal$coefficients[[2]]
 inc_pendiente <- resumen$coefficients[2,2]
@@ -256,16 +245,122 @@ ordenada <- modelo_lineal$coefficients[[1]]
 inc_ordenada <- resumen$coefficients[1,2]
 
 # Graficamos los datos y la línea de ajuste
-
-titulo <- "Ajuste lineal de Y sobre X"
-plot(X,Y, main = titulo, ylab =expression(Y ~ (cm^{-2})), xlab =expression(X ~ (s^{-1})))
+titulo <- "Ajuste lineal de P sobre t"
+plot(t,P, main = titulo, ylab =expression(P ~ (mbar)), xlab =expression(t ~ (s)))
 abline(modelo_lineal, col = "coral")
+
+# Cálculo de Cv
+Cv <- voltaje*intensidad*R/(volumen*pendiente*100) # 1 mbar = 100 Pa
+inc_Cv <- voltaje*intensidad*R/volumen * inc_pendiente/pendiente^2 * 1/100
 ```
+obtiendo los siguientes resultados:
+
+- Pendiente: $a = \frac{V_e I R}{ V \overline{C}_{V}} =`r pendiente`$
+
+- Incertidumbre pendiente: $\Delta a =`r inc_pendiente`$
+
+Expresandolo correctamente:
+\[
+a = `r round(pendiente,2)` \pm `r signif(inc_pendiente,2)`
+\]
+
+Despejando de $C_v$ a partir de la pendiente como $\overline{C}_{V} = \frac{V_e I R}{ V a}$, obtenemos un valor de $\overline{C}_{V} =`r Cv`$. Si además usamos la fórmula de propagación de errores \(\sigma^2 = \sum_i (\partial f / \partial x_i)^2 \sigma_i^2\), la expresión que tenemos que usar para calcular el error es:
+
+\begin{equation}
+\Delta \overline{C}_{V} = \frac{V_e I R}{ V } \cdot \frac{\Delta a}{a^2}
+\end{equation}
+
+de donde obtenemos que $\Delta \overline{C}_{V} =`r inc_Cv`$. Expresándolo correctamente:
+
+\[
+C_v = `r round(Cv,2)` \pm `r signif(inc_Cv,2)`
+\]
+
+\clearpage
+
+## Experiencia 2:
+
+Presión del laboratorio $P_{lab} = 1012.6$ HPa.
+
+```{r}
+# Datos recogidos
+V2 <- 1:5 #mL
+t2_1 <- c(0.411, 0.727, 1.081, 1.487, 1.874)
+t2_2 <- c(0.417, 0.840, 1.047, 1.571, 2.040)
+t2_3 <- c(0.446, 0.800, 1.052, 1.340, 1.905)
+t2 <- (t2_1 + t2_2 + t2_3)/3
+
+# Tabla
+data <- data.frame(t2,V2)
+colnames(data) <- c("Tiempo / s","Volumen / mL")
+  
+knitr::kable(
+  data,
+  caption="Tiempo que se ha mantenido el circuito cerrado para compensar cada variación de volumen",
+  booktabs = TRUE,
+  escape = FALSE,
+  row.names = FALSE,
+  align="c"
+)
+```
+
+A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuación (14), 
+
+```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste de Y sobre X"}
+# Ajuste lineal
+modelo_lineal2 <- lm(V2 ~ t2)
+resumen2 <- summary(modelo_lineal2)
+pendiente2 <- modelo_lineal2$coefficients[[2]]
+inc_pendiente2 <- resumen2$coefficients[2,2]
+ordenada2 <- modelo_lineal2$coefficients[[1]]
+inc_ordenada2 <- resumen2$coefficients[1,2]
+
+# Graficamos los datos y la línea de ajuste
+titulo <- "Ajuste lineal de V sobre t"
+plot(t2,V2, main = titulo, ylab =expression(V ~ (mL)), xlab =expression(t ~ (s)))
+abline(modelo_lineal2, col = "coral")
+
+# Cálculo de Cv
+Cp <- voltaje*intensidad*R/(Plab*pendiente2*1e-6) # 1 mL = 1e-6 m^3
+inc_Cp <- voltaje*intensidad*R/Plab * inc_pendiente2/pendiente2^2 * 1e6
+```
+obtiendo los siguientes resultados:
+
+- Pendiente: $a = \frac{V_e I R}{ P \overline{C}_{P}} =`r pendiente2`$
+
+- Incertidumbre pendiente: $\Delta a =`r inc_pendiente2`$
+
+Expresandolo correctamente:
+\[
+a = `r round(pendiente2,2)` \pm `r signif(inc_pendiente2,2)`
+\]
+
+Despejando de $C_P$ a partir de la pendiente como $\overline{C}_{P} = \frac{V_e I R}{ P a}$, obtenemos un valor de $\overline{C}_{P} =`r Cp`$. Si además usamos la fórmula de propagación de errores \(\sigma^2 = \sum_i (\partial f / \partial x_i)^2 \sigma_i^2\), la expresión que tenemos que usar para calcular el error es:
+
+\begin{equation}
+\Delta \overline{C}_{P} = \frac{V_e I R}{ P } \cdot \frac{\Delta a}{a^2}
+\end{equation}
+
+de donde obtenemos que $\Delta \overline{C}_{P} =`r inc_Cp`$. Expresándolo correctamente:
+
+\[
+C_P = `r round(Cp,2)` \pm `r signif(inc_Cp,2)`
+\]
 
 \clearpage
 
 # Resultados
-SO TO SPEAK
+```{r}
+# Cálculo de R
+Rexp <- Cp - Cv
+inc_Rexp <- sqrt(inc_Cp^2 + inc_Cv^2)
+```
+
+Como $R = \overline{C}_{P} - \overline{C}_{V}$, el error que estamos cometiendo es $\Delta R = \sqrt{\Delta \overline{C}_{P}^2 + \Delta \overline{C}_{V}^2}$. Expresandolo correctamente:
+
+\[
+R = `r round(Rexp,2)` \pm `r signif(inc_Rexp,2)`
+\]
 
 # Discusión y conclusiones de los resultados
 
@@ -274,3 +369,7 @@ Obtén \( C_V \) y \( C_P \), así como las magnitudes del gas ideal que depende
 Ten en consideración si \( I \) y \( V_e \) se mantienen constantes durante las mediciones.
 
 Analiza críticamente los posibles factores experimentales que puedan contribuir a una mala determinación de \( C_V \) y \( C_P \), si éste fuera el caso.
+
+MUCHISIMO ERROR EN LA SEGUNDA. FUENTES:
+- JERINGUILLA, POLVILLO DE DUDOSA PROCEDENCIA. 
+- MISMAS VARIACIONES DE PRESION DISTINTAS VARIACIONES DE PRESION EN EL MANOMETRO.
