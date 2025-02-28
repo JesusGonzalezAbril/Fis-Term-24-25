@@ -209,7 +209,7 @@ En primer lugar, los voltajes e intensidades registrados en el circuito de la bo
 # Datos recogidos
 i <- c(1,2,3,4,5,6)
 V <- c(32.2, 62.0, 92.2, 122.1, 152.2, 182.5) - 2 #Voltios
-I <- c(0.04, 0.06, 0.08, 0.10, 0.11, 0.13)+0.04 #Amperios
+I <- c(0.08, 0.10, 0.12, 0.14, 0.15, 0.17) #Amperios
 P <- V*I #Vatios
 
 # Función vectorizada para calcular la temperatura del filamento
