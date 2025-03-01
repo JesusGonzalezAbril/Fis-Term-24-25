@@ -12,7 +12,7 @@ header-includes:
 - \usepackage{subcaption}
 - \floatplacement{table}{H}
 - \usepackage{lipsum}
-- \usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+#- \usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
 - \pretitle{\begin{center}\huge \bfseries Física Térmica \vspace{0.5cm} \\ \Large}
 - \posttitle{\end{center}}
 - \preauthor{\begin{center} \Large}
@@ -24,7 +24,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 # Objetivos
-Comprobación de la equivalencia entre trabajo y calor y medida de la relación entre caloría y Julio.
+Comprobación de la equivalencia entre trabajo y calor, y medida de la relación entre caloría y Julio.
 
 # Introducción
 En esta práctica se dispone de una cinta enrollada en torno a un cilindro de aluminio de radio $R$, estando este montado sobre un eje rotatorio $O$, tal y como muestra la figura. La cinta queda sujeta a la mesa por un extremo y libre por el opuesto, donde cuelga una pesa de masa $M$. El soporte del cilindro cuenta con un termistor (resistencia eléctrica dependiente de la temperatura) conectado a un multímetro, así como con un contador que muestra el número de vueltas dadas por del cilindro.
@@ -37,7 +37,7 @@ El trabajo $W$ realizado por la fuerza de rozamiento $F$ entre la cinta y el cil
   W = F\Delta l
 \end{equation}
 
-El desplazamiento será $\Delta l = R\theta$, donde $\theta$ es el ángulo recorrido por el cilindro. Si consideramosel número de vueltas, se tendrá que $\theta = 2\pi N$. Así mismo la fuerza de rozamiento será la debida al peso de la pesa, es decir, $F = Mg$. Sustituyendo:
+El desplazamiento será $\Delta l = R\theta$, donde $\theta$ es el ángulo recorrido por el cilindro. Si consideramos el número de vueltas, se tendrá que $\theta = 2\pi N$. Así mismo, la fuerza de rozamiento será la debida al peso de la pesa. Es decir, $F = Mg$. Sustituyendo:
 
 \begin{equation}
   W = 2\pi MgRN
@@ -57,7 +57,7 @@ Nótese que hay que tener en cuenta también la potencia calorífica intercambia
 \frac{dQ}{dt} = \frac{dQ_{aparato}}{dt} + \frac{dQ_{laboratorio}}{dt}
 \end{equation}
 
-donde sólo el primer término será medible directamente. El calor recibido por el dispositivo se mide como:
+donde solo el primer término será medible directamente. El calor recibido por el dispositivo se mide como:
 
 \begin{equation}
   Q_{aparato} = C\Delta T
@@ -89,7 +89,20 @@ Tras un tiempo $\Delta t$ se tiene:
 
 ## Montaje experimental
 
-SO TO SPEAK
+\begin{figure}[H]
+  \begin{subfigure}{.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figuras/manivela.jpg}
+    \caption{Soporte para el cilindro con manivela y contador de vueltas.}
+  \end{subfigure}%
+  \hfill 
+  \begin{subfigure}{.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figuras/multimetro.jpg}
+    \caption{Multímetro.}
+  \end{subfigure}%
+  \caption{Montaje experimental}
+\end{figure}
 
 ## Metodología
 
@@ -112,16 +125,16 @@ SO TO SPEAK
 ## Metodología para el análisis de datos
 
 ### Experiencia 1: Medida del cilindro en frío
-La representación del calor recibido por el cilindro $mc\Delta T$ frente al trabajo $2\pi MgRN$ realizado para el número de vueltas $M$ debe dar una recta cuya pendiente permite hallar $\alpha$. En este caso puede omitirse el intercambio de calor entre el cilindro y el laboratorio, ya que el calor absorbido por el cilindro cuando éste esté más frío que el ambiente será equivalente al desprendido cuando el cilindro esté más caliente que el ambiente.
+La representación del calor recibido por el cilindro $mc\Delta T$ frente al trabajo $2\pi MgRN$ realizado para el número de vueltas $M$ debe proporcionar una recta cuya pendiente permite hallar $\alpha$. En este caso, puede omitirse el intercambio de calor entre el cilindro y el laboratorio, ya que el calor absorbido por el cilindro cuando este esté más frío que el ambiente será equivalente al desprendido cuando el cilindro esté más caliente que el ambiente.
 
 ### Experiencia 2: Medida del cilindro a temperatura ambiente
-Para estimar el segundo término a la izquierda de la (7), ahora no despreciable, pondremos:
+Para estimar el segundo término a la izquierda de la ecuación $(7)$, ahora no despreciable, pondremos:
 
 \begin{equation}
   \frac{dQ_{laboratorio}}{dt} \approx -mc \frac{dT_e}{dt}
 \end{equation}
 
-donde $T_e$ es la temperatura relativa al enfriamiento. Aunque $\frac{dT_e}{dt}$ no es constante, puede aproximarse como tal sustituyéndola con el valor de la pendiente de la regresión linear de la curva de enfriamento durante periodos de calentamiento no demasiado largos o, lo que es lo mismo, para diferencias de temperatura no demasiado altas. Corregir cada dato multiplicando la (8) por el relativo $\Delta t$ y volver a calcular $\alpha$.
+donde $T_e$ es la temperatura relativa al enfriamiento. Aunque $\frac{dT_e}{dt}$ no es constante, puede aproximarse como tal sustituyéndola con el valor de la pendiente de la regresión linear de la curva de enfriamento durante periodos de calentamiento no demasiado largos o, lo que es lo mismo, para diferencias de temperatura no demasiado altas. Corregir cada dato multiplicando la ecuación $(8)$ por el relativo $\Delta t$ y volver a calcular $\alpha$.
 
 \clearpage
 
@@ -129,7 +142,7 @@ donde $T_e$ es la temperatura relativa al enfriamiento. Aunque $\frac{dT_e}{dt}$
 
 ## Experiencia 1
 
-Subida de temperatura desde cilindro recién sacado del frigo. Los datos de temperatura se han obtenido a partir de la tabla de equivalencias del resistor aplicando interpolación lineal.
+Subida de temperatura desde cilindro recién sacado del frigorífico. Los datos de temperatura se han obtenido a partir de la tabla de equivalencias del resistor aplicando interpolación lineal.
 
 ```{r}
 # Datos recogidos
@@ -252,7 +265,7 @@ knitr::kable(
 )
 ```
 
-Sacamos la pendiente $\frac{dT_e}{dt}$ que, si bien no es constante, puede aproximarse como tal sustituyéndola con el valor de la pendiente de la regresión linear de la curva de enfriamento durante periodos de calentamiento no demasiado largos o, lo que es lo mismo, para diferencias de temperatura no demasiado altas (a altas temperaturas la dependencia deja de ser lineal y pasa a ser exponencial...) A partir de las medidas experimentales hacemos un ajuste entre ambas cantidades
+Obtenemos la pendiente $\frac{dT_e}{dt}$ que, si bien no es constante, puede aproximarse como tal sustituyéndola por el valor de la pendiente de la regresión linear de la curva de enfriamento durante periodos de calentamiento no demasiado largos o, lo que es lo mismo, para diferencias de temperatura no demasiado altas (a altas temperaturas la dependencia deja de ser lineal y pasa a ser exponencial). A partir de las medidas experimentales hacemos un ajuste entre ambas cantidades:
 
 ```{r, echo=FALSE,  out.width= "80%", fig.align='center', fig.cap="Ajuste lineal"}
 # Ajuste lineal
@@ -275,7 +288,7 @@ obtiendo los siguientes resultados:
 
 - Incertidumbre pendiente: $\Delta \frac{dT_e}{dt} =`r inc_pendiente2` \ K/s$
 
-Volvemos a tomar medidas para la subida de temperatura mediante trabajo mecánico
+Volvemos a tomar medidas para la subida de temperatura mediante trabajo mecánico.
 
 ```{r}
 # Datos recogidos
@@ -304,7 +317,7 @@ knitr::kable(
   align="c"
 )
 ```
-A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuación (8)
+A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuación $(8)$:
 
 ```{r, echo=FALSE,  out.width= "80%", fig.align='center', fig.cap="Ajuste por mínimos cuadrados"}
 # Datos recogidos
@@ -351,9 +364,24 @@ Expresándolo correctamente:
 # Discusión y conclusiones de los resultados
 Piden: Obtener $\alpha$ por ambos métodos, incluyendo el análisis de incertidumbre y error con respecto al valor de referencia. Comparar la efectividad de cada procedimiento.
 
-- AL PRINCIPIO MEDIDAS SIN SENTIDO
-- CONSIDERAR LA CORRECIÓN DE LA PERDIDA DE CALOR EN LA SEGUNDA EXPERENCIA LINEAL
-- INTERPOLACION PARA LAS T ASOCIADAS A LAS R EN LA TABLA
+Si bien hemos obtenido valores similares del parámetro $\alpha$, este se encuentra lejos del valor esperado $\alpha_{teor} = 1$. Aunque las incertidumbres correspondientes a cada resultado sean lo suficientemente pequeñas como para no recoger este valor esperado, existen diversas fuentes de error presentes en cada experiencia que afectan a la fiabilidad de los resultados y no se ven reflejadas en esta incertidumbre.
+
+Para empezar, las primeras medidas que se realizaron en la primera experienciano fueron coherentes entre sí. Podemos observar que los valores de la resistencia que proporcionaba el multímetro (Tabla 1) oscilaban aunque no dejáramos de girar el cilindro, cuando lo razonable es que fuera aumentando la temperatura de este según avanzaba el tiempo. Y aunque después se establizasen los valores de $R$, se produjo una anomalía en la medida $18$, donde la temperatura del cilindro disminuyó repentinamente (según el multímetro). Si bien es cierto que el ritmo de giro no fue estricatemente constante, sobre todo al comienzo de la experiencia, esto no explica oscilaciones de temperatura tan amplias.
+
+En relación con todas las medidas realizadas, debemos destacar que disponíamos, solamente, de unos pares concretos de temperaturas con sus correspondientes resistencias. En concreto, estos fueron  los correspondientes a temperaturas enteras ($T \in \mathbb{N}$). Por lo tanto, como lo que obteníamos del multímetro eran las resistencias, hemos obtenido las temperaturas por interpolación.
+
+En la propia base teórica para obtener los resultados también existen diversas fuentes de error que han de ser consideradas. La más inmediata es la aproximación de la ecuación $(7)$ que realizamos para la segunda experiencia, donde estimamos las pérdidas de calor suponiendo que la pendiente $\frac{dT_e}{dt}$ es constante (cuando, para altas temperaturas, esta aproximación deja de ser tan precisa). Para la primera experiencia, en cambio, puede inducir algo de error el suponer que las pérdidas de calor cuando el cilindro está a mayor temperatura que la ambiente son iguales al calor absorbido cuando se encuentra a menor temperatura. Aunque esto sea cierto en teoría, no hemos comprobado que sea así en la realidad. Es posible que la diferencia en los intervalos de tiempo en los que el cilindro está a menor y mayor temperatura que la ambiente pueda influir en esta equivalencia pérdidas-ganancias, pues:
+
+
+$- T<T_0: \Delta t \in (530,591) \ s$
+
+$- T>T_0: \Delta t \in (1122,1183) \ s$
+
+- NO SÉ SI DEJAR ESTE ÚLTIMO ARGUMENTO PORQUE TRHErMODYNAMICS ONLY APPLIES TO EQUILIBRIA STATES, AND THEY ARE STATIC! (no time, so to speak).
+- DEBERÍA ESCribir QUE NO SABEMOS SI EL CONTACTO DEL CIRCUITO Y EL CIRCUITO ESTÁN BIEN Y TRANSMITEN BIEN LA INFORMACIÓN AL MULTÍMETRO
+
+De todas formas, y aunque el valor $\alpha=1$ no esté comprendido en nuestros resultados experimentales, las experiencias comprueban cualitativamente el funcionamiento de nuestro marco teórico.
+
 
 
 
