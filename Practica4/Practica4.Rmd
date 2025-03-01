@@ -16,7 +16,7 @@ header-includes:
 - \pretitle{\begin{center}\huge \bfseries Física Térmica \vspace{0.5cm} \\ \Large}
 - \posttitle{\end{center}}
 - \preauthor{\begin{center} \Large}
-- \postauthor{\vspace{0.5cm} \\ Profesor Pablo De Vera Gomis \end{center}}
+- \postauthor{\vspace{0.5cm} \\ Profesor Pablo De Vera \end{center}}
 ---
 
 ```{r setup, include=FALSE}
@@ -360,14 +360,26 @@ Como $R = \overline{C}_{P} - \overline{C}_{V}$, el error que estamos cometiendo 
 R = `r round(Rexp,2)` \pm `r signif(inc_Rexp,2)` \ \frac{J}{mol \ K}
 \]
 
+mientras que el valor real es, aproximadamente:
+$$
+R = 8.3145 \ \frac{J}{mol \cdot K}
+$$
+obteniendo así un error relativo de:
+$$
+\mathcal{E}_{R}(R) = \frac{|R^{teor}-R^{exp}|}{|R^{teor}|}\simeq 1.34
+$$
+además de que un signo negativo en la constante de los gases ideales no tiene coherencia física, pues $P,V,n,T \geq 0$ y, para estos gases, $PV=nRT$.
+
 # Discusión y conclusiones de los resultados
 
-Obtén \( C_V \) y \( C_P \), así como las magnitudes del gas ideal que dependen de éstos, incluyendo el análisis de su incertidumbre y el error con respecto a los valores teóricos.
+Dados los resultados obtenidos y conociendo el valor real de la constante $R$, resulta obvio que deben existir fuentes de error más allá de las que manifiesta la incertidumbre en los resultados y que intervienen en los valores experimentales, reduciendo así su fiabilidad. Como no conocemos qué tipo de gas ideal es el que está contenido en nuestra botella, usamos el valor de $R$ en las comparativas en vez de los de los calores específicos a presión y volumen constante.
 
-Ten en consideración si \( I \) y \( V_e \) se mantienen constantes durante las mediciones.
+Mencionemos, primero, las posibles fuentes de error procedentes de nuestros instrumentos de medida. En el manómetro, además de entrañar cierta dificultad para determinar cuándo proporcionaba un valor nulo de la diferencia de presión, también pudimos observar que ofrecía distintos valores de diferencia de presión para experiencias prácticamente idénticas. Esto es, para valores similares de tiempo en la primera experiencia o volumen extraído en la segunda. Además, en esta segunda experiencia, debemos destacar que el instrumento utilizado (jeringuilla) disponía de una precisión del mismo orden que las magnitudes manejadas ($1mL$), induciendo así mayores errores relativos.
 
-Analiza críticamente los posibles factores experimentales que puedan contribuir a una mala determinación de \( C_V \) y \( C_P \), si éste fuera el caso.
+Aunque no se haya podido comprobar empíricamente, podríamos sospechar de la presencia de algún tipo de pérdidas del gas en la botella. De hecho, estas podrían ocasionarse en las reiteradas medidas en la segunda experiencia, pues en esta fuimos extrayendo una porción del volumen del gas con nuestra jeringuilla, y es posible que no regresara íntegramente a la botella, generando así pérdidas.
 
-MUCHISIMO ERROR EN LA SEGUNDA. FUENTES:
-- JERINGUILLA, POLVILLO DE DUDOSA PROCEDENCIA. 
-- MISMAS VARIACIONES DE PRESION DISTINTAS VARIACIONES DE PRESION EN EL MANOMETRO.
+Aun siendo los valores de $I$ y $V_e$ constantes a lo largo de todo el experimento y a pesar de haber procedido meticulosamente, hemos obtenido unos valores de $\bar{C_P}$ y $\bar{C_V}$ dispares respecto a los reales:
+
+COMENTAR QUÉ VALORES DE Cv Y CP PUEDEN SER (POR PROXIMIDAD, O SIMPLEMENTE ANALIZANDO LOS DOS CASOS) Y COMPARARLOS CON LOS OBTENIDOS.
+
+CANCIÓN DEL DÍA: [https://www.youtube.com/watch?v=MFsoZ__2WzQ]
