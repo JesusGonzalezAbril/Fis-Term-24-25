@@ -12,11 +12,11 @@ header-includes:
 - \usepackage{subcaption}
 - \floatplacement{table}{H}
 - \usepackage{lipsum}
-- \usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+#- \usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
 - \pretitle{\begin{center}\huge \bfseries Física Térmica \vspace{0.5cm} \\ \Large}
 - \posttitle{\end{center}}
 - \preauthor{\begin{center} \Large}
-- \postauthor{\vspace{0.5cm} \\ Profesor Giuseppe Raguní \end{center}}
+- \postauthor{\vspace{0.5cm} \\ Profesor Pablo de Vera \end{center}}
 ---
 
 ```{r setup, include=FALSE}
@@ -133,7 +133,7 @@ permite obtener \( C_P \) de la pendiente \( a = V_e I R / P \overline{C}_{P} \)
 
 ## Montaje experimental
 
-Para ambos experimentos utilizaremos el mismo dispositivo. Tenemos una botella (con su volumen previamente medido, \( V = 5 \, \text{l} \)). En el tapón de la misma viene acoplada una llave de paso para poder mantener el sistema a volumen o presión constante. En la llave están conectadas dos gomas: una conectada a una jeringuilla (con la que mediremos la variación de volumen) y la otra goma conectada a un manómetro para medir la presión.
+Para ambos experimentos utilizaremos el mismo dispositivo. Tenemos una botella (con su volumen previamente medido, \( V = 5 \, \text{L} \)). En el tapón de la misma viene acoplada una llave de paso para poder mantener el sistema a volumen o presión constante. En la llave están conectadas dos gomas: una conectada a una jeringuilla (con la que mediremos la variación de volumen) y la otra goma conectada a un manómetro para medir la presión.
 
 La resistencia calefactora va conectada a un circuito de corriente alterna, con potencial e intensidad constante, conectada a su vez a un temporizador, por lo que podremos medir la cantidad de calor y un pulsador para controlar la cantidad de tiempo que aplicamos ese calor.
 
@@ -145,7 +145,7 @@ La resistencia calefactora va conectada a un circuito de corriente alterna, con 
 
 1. Anota la temperatura marcada por el termómetro digital del laboratorio.
 
-2. Durante esta experiencia no se variará el volumen de aire en la jeringuilla. Mantenla en todo momento a un volumen de 0 ml. Puede usarse la llave en forma de “T” para aislar la jeringuilla de la botella.
+2. Durante esta experiencia no se variará el volumen de aire en la jeringuilla. Mantenla en todo momento a un volumen de 0 mL. Puede usarse la llave en forma de “T” para aislar la jeringuilla de la botella.
 
 3. Suelta la goma que va al manómetro y espera unos minutos hasta que la presión y temperatura del aire de la botella se equilibren con las atmosféricas.
 
@@ -181,6 +181,8 @@ La resistencia calefactora va conectada a un circuito de corriente alterna, con 
 
 10. Elabora una tabla donde anotes: aumento de volumen, tiempos de calentamiento necesarios para recuperar la presión inicial, voltaje y corriente medidos por los multímetros durante el tiempo de calentamiento. Conviene llegar a un \( \Delta V \) máximo de unos 4 o 5 ml.
 
+\clearpage
+
 ## Metodología para el análisis de los datos
 
 ## Experiencia 1:
@@ -201,7 +203,7 @@ La resistencia calefactora va conectada a un circuito de corriente alterna, con 
 
 ## Experiencia 1:
 
-Volumen constante 10 L
+La realizaremos, como se explicó anteriormente, a volumen constante 5 L.
 
 ```{r}
 volumen <- 10*1e-3 #m^3
@@ -229,9 +231,9 @@ knitr::kable(
 )
 ```
 
-A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuación (11), 
+A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuación $(11)$: 
 
-```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste de Y sobre X"}
+```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste de P sobre t"}
 
 t <- t[1:5]
 P <- P[1:5]
@@ -253,18 +255,21 @@ abline(modelo_lineal, col = "coral")
 Cv <- voltaje*intensidad*R/(volumen*pendiente*100) # 1 mbar = 100 Pa
 inc_Cv <- voltaje*intensidad*R/volumen * inc_pendiente/pendiente^2 * 1/100
 ```
-obtiendo los siguientes resultados:
+
+\clearpage
+
+Obteniendo los siguientes resultados:
 
 - Pendiente: $a = \frac{V_e I R}{ V \overline{C}_{V}} =`r pendiente`$
 
 - Incertidumbre pendiente: $\Delta a =`r inc_pendiente`$
 
-Expresandolo correctamente:
+Expresándolo correctamente:
 \[
 a = `r round(pendiente,2)` \pm `r signif(inc_pendiente,2)`
 \]
 
-Despejando de $C_v$ a partir de la pendiente como $\overline{C}_{V} = \frac{V_e I R}{ V a}$, obtenemos un valor de $\overline{C}_{V} =`r Cv`$. Si además usamos la fórmula de propagación de errores \(\sigma^2 = \sum_i (\partial f / \partial x_i)^2 \sigma_i^2\), la expresión que tenemos que usar para calcular el error es:
+Despejando el valor de $C_v$ a partir de la pendiente como $\overline{C}_{V} = \frac{V_e I R}{ V a}$, obtenemos un valor de $\overline{C}_{V} =`r Cv`$. Si además usamos la fórmula de propagación de errores \(\sigma^2 = \sum_i (\partial f / \partial x_i)^2 \sigma_i^2\), la expresión que tenemos que usar para calcular el error es:
 
 \begin{equation}
 \Delta \overline{C}_{V} = \frac{V_e I R}{ V } \cdot \frac{\Delta a}{a^2}
@@ -280,7 +285,7 @@ C_v = `r round(Cv,2)` \pm `r signif(inc_Cv,2)`
 
 ## Experiencia 2:
 
-Presión del laboratorio $P_{lab} = 1012.6$ HPa.
+Presión del laboratorio: $P_{lab} = 1012.6$ HPa.
 
 ```{r}
 # Datos recogidos
@@ -304,9 +309,9 @@ knitr::kable(
 )
 ```
 
-A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuación (14), 
+A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuación $(14)$: 
 
-```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste de Y sobre X"}
+```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste de V sobre t"}
 # Ajuste lineal
 modelo_lineal2 <- lm(V2 ~ t2)
 resumen2 <- summary(modelo_lineal2)
@@ -324,18 +329,20 @@ abline(modelo_lineal2, col = "coral")
 Cp <- voltaje*intensidad*R/(Plab*pendiente2*1e-6) # 1 mL = 1e-6 m^3
 inc_Cp <- voltaje*intensidad*R/Plab * inc_pendiente2/pendiente2^2 * 1e6
 ```
-obtiendo los siguientes resultados:
+Obteniendo los siguientes resultados:
 
 - Pendiente: $a = \frac{V_e I R}{ P \overline{C}_{P}} =`r pendiente2`$
 
 - Incertidumbre pendiente: $\Delta a =`r inc_pendiente2`$
 
-Expresandolo correctamente:
+Expresándolo correctamente:
 \[
 a = `r round(pendiente2,2)` \pm `r signif(inc_pendiente2,2)`
 \]
 
-Despejando de $C_P$ a partir de la pendiente como $\overline{C}_{P} = \frac{V_e I R}{ P a}$, obtenemos un valor de $\overline{C}_{P} =`r Cp`$. Si además usamos la fórmula de propagación de errores \(\sigma^2 = \sum_i (\partial f / \partial x_i)^2 \sigma_i^2\), la expresión que tenemos que usar para calcular el error es:
+\clearpage
+
+Despejando el valor de $C_P$ a partir de la pendiente como $\overline{C}_{P} = \frac{V_e I R}{ P a}$, obtenemos un valor de $\overline{C}_{P} =`r Cp`$. Si además usamos la fórmula de propagación de errores \(\sigma^2 = \sum_i (\partial f / \partial x_i)^2 \sigma_i^2\), la expresión que tenemos que usar para calcular el error es:
 
 \begin{equation}
 \Delta \overline{C}_{P} = \frac{V_e I R}{ P } \cdot \frac{\Delta a}{a^2}
@@ -356,11 +363,21 @@ Rexp <- Cp - Cv
 inc_Rexp <- sqrt(inc_Cp^2 + inc_Cv^2)
 ```
 
-Como $R = \overline{C}_{P} - \overline{C}_{V}$, el error que estamos cometiendo es $\Delta R = \sqrt{\Delta \overline{C}_{P}^2 + \Delta \overline{C}_{V}^2}$. Expresandolo correctamente:
+Como $R = \overline{C}_{P} - \overline{C}_{V}$, el error que estamos cometiendo es $\Delta R = \sqrt{\Delta \overline{C}_{P}^2 + \Delta \overline{C}_{V}^2}$. Expresándolo correctamente:
 
 \[
-R = `r round(Rexp,2)` \pm `r signif(inc_Rexp,2)`
+R = `r round(Rexp,2)` \pm `r signif(inc_Rexp,2)` \ \frac{J}{mol \cdot K}
 \]
+
+mientras que el valor real es, aproximadamente:
+$$
+R = 8.3145 \ \frac{J}{mol \cdot K}
+$$
+obteniendo así un error relativo de:
+$$
+\mathcal{E}_{R}(R) = \frac{|R^{teor}-R^{exp}|}{|R^{teor}|}\simeq 1.34
+$$
+además de que un signo negativo en la constante de los gases ideales no tiene coherencia física, pues $P,V,n,T \geq 0$ y, para estos gases, $PV=nRT$.
 
 # Discusión y conclusiones de los resultados
 
@@ -370,6 +387,14 @@ Ten en consideración si \( I \) y \( V_e \) se mantienen constantes durante las
 
 Analiza críticamente los posibles factores experimentales que puedan contribuir a una mala determinación de \( C_V \) y \( C_P \), si éste fuera el caso.
 
-MUCHISIMO ERROR EN LA SEGUNDA. FUENTES:
-- JERINGUILLA, POLVILLO DE DUDOSA PROCEDENCIA. 
-- MISMAS VARIACIONES DE PRESION DISTINTAS VARIACIONES DE PRESION EN EL MANOMETRO.
+Dados los resultados obtenidos y conociendo el valor real de la constante $R$, resulta obvio que deben existir fuentes de error más allá de las que manifiesta la incertidumbre en los resultados y que intervienen en los valores experimentales, reduciendo así su fiabilidad. Como no conocemos qué tipo de gas ideal es el que está contenido en nuestra botella, usamos el valor de $R$ en las comparativas en vez de los de los calores específicos a presión y volumen constante.
+
+Mencionemos, primero, las posibles fuentes de error procedentes de nuestros instrumentos de medida. En el manómetro, además de entrañar cierta dificultad para determinar cuándo proporcionaba un valor nulo de la diferencia de presión, también pudimos observar que ofrecía distintos valores de diferencia de presión para experiencias prácticamente idénticas. Esto es, para valores similares de tiempo en la primera experiencia o volumen extraído en la segunda. Además, en esta segunda experiencia, debemos destacar que el instrumento utilizado (jeringuilla) disponía de una precisión del mismo orden que las magnitudes manejadas ($1mL$), induciendo así mayores errores relativos.
+
+Aunque no se haya podido comprobar empíricamente, podríamos sospechar de la presencia de algún tipo de pérdidas del gas en la botella. De hecho, estas podrían ocasionarse en las reiteradas medidas en la segunda experiencia, pues en esta fuimos extrayendo una porción del volumen del gas con nuestra jeringuilla, y es posible que no regresara íntegramente a la botella, generando así pérdidas.
+
+Aun siendo los valores de $I$ y $V_e$ constantes a lo largo de todo el experimento y a pesar de haber procedido meticulosamente, hemos obtenido unos valores de $\bar{C_P}$ y $\bar{C_V}$ dispares respecto a los reales:
+
+COMENTAR QUÉ VALORES DE Cv Y CP PUEDEN SER (POR PROXIMIDAD, O SIMPLEMENTE ANALIZANDO LOS DOS CASOS) Y COMPARARLOS CON LOS OBTENIDOS.
+
+CANCIÓN DEL DÍA: [https://www.youtube.com/watch?v=MFsoZ__2WzQ]
