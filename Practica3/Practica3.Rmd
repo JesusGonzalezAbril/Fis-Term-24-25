@@ -94,29 +94,27 @@ SO TO SPEAK
 ## Metodología
 
 ### Experiencia 1: Medida del cilindro en frío
-1. El cilindro se encuentra en el congelador. Sácalo y deposítalo con cuidado en la mesa para atemperarlo ligeramente. Utiliza papel secante para limpiar el cilindro y quitarle los restos de humedad.
+1. El cilindro se encuentra en el congelador. Sácalo y deposítalo con cuidado en la mesa para atemperarlo ligeramente.
 2. Medir $m$ con la balanza y el diámetro $D$ con el pie de rey. Medir $M$ con la báscula digital.
-3. Coloca con delicadeza el cilindro en el eje de rotación, enroscando el tornillo negro para fijarlo.
-4. Antes de enrollar la cinta, espolvorea una pequeña cantidad de grafito en polvo sobre el cilindro y, ayudándote de papel secante, rota el cilindro para esparcir el grafito por toda la superficie. Esto evitará un rozamiento excesivo entre la cinta y el cilindro.
-5.  Enrolla con delicadeza la cinta alrededor del cilindro, dando unas 5 o 6 vueltas. Debes evitar en todo momento (incluyendo durante la rotación) que la cinta quede tensa en el punto de sujección a la mesa.
-6. Mientras se sujeta firmamente la manivela de rotación, se cuelga con cuidado la pesa en la arandela del extremo libre de la cinta, a una distancia de unos pocos centímetros al suelo, soltándola de manera progresiva para evitar romper la cinta.
-7. Ajustar el contador de vueltas a cero.
-8. Enciende el multímetro para medir su resistencia. Comprueba su temperatura mediante la tabla de calibración del termisor. Comprueba la temperatura del laboratorio en el termómetro digital disponible.
-9. Comienza el experimento: inicia el cronómetro y empieza a rotar el cilindro a ritmo constante, evitando que la pesa ascienda. Mide periodicamente el tiempo transcurrido, el número de vueltas y la resistencia del termisor.
-10. Se debe rotar el cilindro a ritmo constante durante el tiempo suficiente como para que la temperatura final supere a la temperatura ambiente, en una magnitud igual a la diferencia entre la temperatura ambiente y la temperatura inicial del cilindro.
+3. Coloca con delicadeza el cilindro en el eje de rotación, enroscando el tornillo negro para fijarlo. Enrolla con delicadeza la cinta alrededor del cilindro, dando unas 5 o 6 vueltas. Debes evitar en todo momento (incluyendo durante la rotación) que la cinta quede tensa en el punto de sujección a la mesa.
+4. Mientras se sujeta firmamente la manivela de rotación, se cuelga con cuidado la pesa en la arandela del extremo libre de la cinta.
+5. Ajustar el contador de vueltas a cero.
+6. Enciende el multímetro para medir su resistencia. Comprueba su temperatura mediante la tabla de calibración del termisor. Comprueba la temperatura del laboratorio en el termómetro digital disponible.
+7. Inicia el cronómetro y empieza a rotar el cilindro a ritmo constante, evitando que la pesa ascienda. Mide periodicamente el tiempo transcurrido, el número de vueltas y la resistencia del termisor.
+8. Se debe rotar el cilindro a ritmo constante durante el tiempo suficiente como para que la temperatura final supere a la temperatura ambiente, en una magnitud igual a la diferencia entre la temperatura ambiente y la temperatura inicial del cilindro.
 
 
 ### Experiencia 2: Medida del cilindro a temperatura ambiente
 1. Dejar que el cilindro alcance la temperatura ambiente.
-2. Repetir la experiencia anterior desde el paso 6.
+2. Repetir la experiencia anterior desde el paso 4.
 3. Al finalizar el proceso de calentamiento, inicia de nuevo el cronómetro y deja enfriar el cilindro, sin extrarlo del dispositivo, por un tiempo similar al tiempo de calentamiento. Anota periódicamente el tiempo de enfriamiento transcurrido y la resistencia del termistor.
 
-# Metodología para el análisis de datos
+## Metodología para el análisis de datos
 
-## Experiencia 1
+### Experiencia 1: Medida del cilindro en frío
 La representación del calor recibido por el cilindro $mc\Delta T$ frente al trabajo $2\pi MgRN$ realizado para el número de vueltas $M$ debe dar una recta cuya pendiente permite hallar $\alpha$. En este caso puede omitirse el intercambio de calor entre el cilindro y el laboratorio, ya que el calor absorbido por el cilindro cuando éste esté más frío que el ambiente será equivalente al desprendido cuando el cilindro esté más caliente que el ambiente.
 
-## Experiencia 2
+### Experiencia 2: Medida del cilindro a temperatura ambiente
 Para estimar el segundo término a la izquierda de la (7), ahora no despreciable, pondremos:
 
 \begin{equation}
@@ -177,7 +175,7 @@ knitr::kable(
 
 A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuación (3)
 
-```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste lineal"}
+```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste por mínimos cuadrados"}
 # Datos recogidos
 diamCilind <- 47.9*1e-3 # m
 mCilind <- 0.2011 # masa del cilindro Kg
@@ -226,7 +224,7 @@ Expresándolo correctamente:
 
 ## Experiencia 2
 
-Datos registrados en la bajada
+Datos registrados en la bajada de temperatura hasta la temperatura ambiente.
 
 ```{r}
 # Datos recogidos
@@ -254,13 +252,9 @@ knitr::kable(
 )
 ```
 
-Sacamos la pendiente $\frac{dT_e}{dt}$ que, si bien no es constante, puede aproximarse como tal sustituyéndola con el valor de la pendiente de la regresión linear de la curva de enfriamento durante periodos de calentamiento no demasiado largos o, lo que es lo mismo, para diferencias de temperatura no demasiado altas (a altas temperaturas la dependencia deja de ser lineal y pasa a ser exponencial...)
+Sacamos la pendiente $\frac{dT_e}{dt}$ que, si bien no es constante, puede aproximarse como tal sustituyéndola con el valor de la pendiente de la regresión linear de la curva de enfriamento durante periodos de calentamiento no demasiado largos o, lo que es lo mismo, para diferencias de temperatura no demasiado altas (a altas temperaturas la dependencia deja de ser lineal y pasa a ser exponencial...) A partir de las medidas experimentales hacemos un ajuste entre ambas cantidades
 
-A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuación (-), 
-
-\clearpage
-
-```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste de Y sobre X"}
+```{r, echo=FALSE,  out.width= "80%", fig.align='center', fig.cap="Ajuste lineal"}
 # Ajuste lineal
 modelo_lineal2 <- lm(T2 ~ t2)
 resumen2 <- summary(modelo_lineal2)
@@ -310,11 +304,9 @@ knitr::kable(
   align="c"
 )
 ```
-A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuación (7)
+A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuación (8)
 
-\clearpage
-
-```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste lineal"}
+```{r, echo=FALSE,  out.width= "80%", fig.align='center', fig.cap="Ajuste por mínimos cuadrados"}
 # Datos recogidos
 T0 <- 27 # Celsius
 DeltaT3 <- T3-T0 # Variacion de temperatura
@@ -342,21 +334,19 @@ plot(W3,Q3, main = titulo, ylab =expression(Q ~ (J)), xlab =expression(W ~ (J)))
 abline(modelo_lineal3, col = "coral")
 ```
 
+\clearpage
+
 obtiendo los siguientes resultados:
 
 - Pendiente: $\alpha = `r pendiente3`$
 
 - Incertidumbre pendiente: $\Delta \alpha =`r inc_pendiente3`$
 
-Expresandolo correctamente:
+Expresándolo correctamente:
 \[
 \alpha = `r round(pendiente3,2)` \pm `r signif(inc_pendiente3,2)`
 \]
 
-\clearpage
-
-# Resultados
-SO TO SPEAK
 
 # Discusión y conclusiones de los resultados
 Piden: Obtener $\alpha$ por ambos métodos, incluyendo el análisis de incertidumbre y error con respecto al valor de referencia. Comparar la efectividad de cada procedimiento.
