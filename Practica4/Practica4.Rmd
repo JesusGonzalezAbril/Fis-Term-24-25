@@ -356,6 +356,8 @@ de donde obtenemos que $\Delta \overline{C}_{P} =`r inc_Cp` \ \frac{J}{mol \ K}$
 ```{r}
 Cv_teorico <- 5/2*R
 Cp_teorico <- 7/2*R
+error_relativo_Cv <- abs(Cv_teorico-Cv)/Cv_teorico
+error_relativo_Cp <- abs(Cp_teorico-Cp)/Cp_teorico
 
 # Cálculo de R
 Rexp <- Cp - Cv
@@ -415,10 +417,10 @@ de nuevo muy lejano al valor teórico para un gas ideal diatómico que es
 
 # Discusión y conclusiones de los resultados
 
-Dados los resultados obtenidos y teniendo en cuenta especialmente el valor sin sentido obtenido para la constante $R$, resulta obvio que debe existir un error de método en el experimento realizado. 
+Dados los resultados obtenidos y teniendo en cuenta especialmente el valor sin sentido obtenido para la constante $R$, resulta evidente que debe existir un error de método en el experimento realizado.  
 
-Mencionemos, primero, las posibles fuentes de error procedentes de nuestros instrumentos de medida. En el manómetro, además de entrañar cierta dificultad para determinar cuándo proporcionaba un valor nulo de la diferencia de presión, también pudimos observar que ofrecía distintos valores de diferencia de presión para experiencias prácticamente idénticas. Esto es, para valores similares de tiempo en la primera experiencia o volumen extraído en la segunda. Además, en esta segunda experiencia, debemos destacar que el instrumento utilizado (jeringuilla) disponía de una precisión del mismo orden que las magnitudes manejadas ($1mL$), induciendo así mayores errores relativos.
+Empezaremos comentando las posibles fuentes de error procedentes de nuestros instrumentos de medida. Con respecto al manómetro, además de entrañar cierta dificultad para determinar cuándo proporcionaba un valor nulo de la diferencia de presión debido al menisco que presentaba el líquido de su interior, también pudimos observar que ofrecía distintos valores en estas diferencias de presión para experiencias prácticamente idénticas. Principalmente, estas diferencias dispares se vieron reflejadas al mantener cerrado el circuito para valores similares de tiempo en la primera experiencia o cuando extraíamos volúmenes similares con la jeringuilla en la segunda experiencia. Además, en esta segunda experiencia, debemos destacar que el instrumento utilizado (jeringuilla) disponía de una precisión del mismo orden que las magnitudes manejadas ($1 \ mL$), induciendo así mayores errores relativos.  
 
-Aunque no se haya podido comprobar empíricamente, podríamos sospechar de la presencia de algún tipo de pérdidas del gas en la botella. De hecho, estas podrían ocasionarse en las reiteradas medidas en la segunda experiencia, pues en esta fuimos extrayendo una porción del volumen del gas con nuestra jeringuilla, y es posible que no regresara íntegramente a la botella, generando así pérdidas.
+Por otra parte, y aunque no se haya podido comprobar empíricamente, podríamos sospechar de la presencia de algún tipo de pérdida del gas en la botella. De hecho, esta podría ocasionarse en las reiteradas mediciones durante la segunda experiencia, pues en la realización de la misma fuimos extrayendo porciones del volumen del gas y es posible que, al abrir el sistema, no se recuperase íntegramente el volumen inicial de la botella, generando así pérdidas.  
 
-Aun siendo los valores de $I$ y $V_e$ constantes a lo largo de todo el experimento y a pesar de haber procedido meticulosamente, hemos obtenido unos valores de $\bar{C_P}$ y $\bar{C_V}$ dispares respecto a los reales.
+Aun siendo los valores de $I$ y $V_e$ constantes a lo largo de todo el experimento y a pesar de haber procedido meticulosamente, hemos obtenido unos valores de $\bar{C_P}$ y $\bar{C_V}$ dispares respecto a los teóricos, presentando unos errores relativos de $0.32$ y $0.98$, respectivamente. Claramente, nuestra mayor fuente de error es el cálculo de $\bar{C_V}$, la cual es la causante también de que la constante de los gases ideales nos salga negativa. Sin embargo, el coeficiente de correlación en el ajuste por mínimos cuadrados de la figura (4) es de $r = 0.998$, lo que nos indica que las aproximaciones realizadas en la ecuación (11) para suponer una dependencia lineal entre presión y temperatura son realmente buenas. Todo esto nos lleva a reforzar la idea de que debe existir un error de método intrínseco en el experimento que somos incapaces de ver. Aunque no se hayan alcanzado de manera satisfactoria los objetivos de la práctica, al menos hemos comprobado cualitativamente esta dependencia lineal descrita en las ecuaciones (11) y (14).
