@@ -197,7 +197,7 @@ La resistencia calefactora va conectada a un circuito de corriente alterna, con 
 
 En ambos experimentos se le suministra al circuito un voltaje $V_e=4.81\ V$ y una intensidad de corriente $I=0.26\ A$. La temperatura ambiental registrada en el laboratorio es $T_{lab}=18.9^\circ C$, y el volumen de la botella es de $10\ l$. Para el cálculo de $\overline{C}_V,\overline{C}_P$ se emplea el valor $R=8.314472 \frac{Pa\ m^3}{\text{mol}\ K}$.
 
-## Experiencia 1:
+## Experiencia 1
 
 Las medidas de la experiencia 1 se realizan con el sistema a volumen constante igual a $10\ l$. Siguiendo el procedimiento experimental explicado antes se obtuvieron las siguientes medidas.
 
@@ -259,7 +259,7 @@ inc_Cv <- voltaje*intensidad*R/volumen * inc_pendiente/pendiente^2 * 1/100
 
 - Incertidumbre pendiente: $\Delta a =`r inc_pendiente` \ \frac{mbar}{s}$
 
-Expresandolo correctamente:
+Expresándolo correctamente:
 \[
 a = `r round(pendiente,4)`0 \pm `r signif(inc_pendiente,2)` \ \frac{mbar}{s}
 \]
@@ -278,7 +278,7 @@ de donde obtenemos que $\Delta \overline{C}_{V} =`r inc_Cv` \ \frac{J}{mol \ K}$
 
 \clearpage
 
-## Experiencia 2:
+## Experiencia 2
 
 En este experimento mantenemos la presión aproximadamente constante e igual a la presión del laboratorio, cuyo valor registrado fue $P_{lab} = 1012.6$ HPa. Para cada volumen se realizaron tres mediciones temporales $t_1,t_2,t_3$, tomando como tiempo final $t$ el promedio de los tres tiempos registrados, los datos se recogen en la siguiente tabla.
 
@@ -332,7 +332,7 @@ inc_Cp <- voltaje*intensidad*R/Plab * inc_pendiente2/pendiente2^2 * 1e6
 
 - Incertidumbre pendiente: $\Delta a =`r inc_pendiente2` \ \frac{mL}{s}$
 
-Expresandolo correctamente:
+Expresándolo correctamente:
 \[
 a = `r round(pendiente2,2)` \pm `r signif(inc_pendiente2,2)` \ \frac{mL}{s}
 \]
@@ -411,6 +411,7 @@ de nuevo muy lejano al valor teórico para un gas ideal diatómico que es
 \gamma^{teo}=\frac{7}{5}=1.4
 \]
 
+\clearpage
 
 # Discusión y conclusiones de los resultados
 
@@ -420,8 +421,4 @@ Mencionemos, primero, las posibles fuentes de error procedentes de nuestros inst
 
 Aunque no se haya podido comprobar empíricamente, podríamos sospechar de la presencia de algún tipo de pérdidas del gas en la botella. De hecho, estas podrían ocasionarse en las reiteradas medidas en la segunda experiencia, pues en esta fuimos extrayendo una porción del volumen del gas con nuestra jeringuilla, y es posible que no regresara íntegramente a la botella, generando así pérdidas.
 
-Aun siendo los valores de $I$ y $V_e$ constantes a lo largo de todo el experimento y a pesar de haber procedido meticulosamente, hemos obtenido unos valores de $\bar{C_P}$ y $\bar{C_V}$ dispares respecto a los reales:
-
-COMENTAR QUÉ VALORES DE Cv Y CP PUEDEN SER (POR PROXIMIDAD, O SIMPLEMENTE ANALIZANDO LOS DOS CASOS) Y COMPARARLOS CON LOS OBTENIDOS.
-
-CANCIÓN DEL DÍA: [https://www.youtube.com/watch?v=MFsoZ__2WzQ]
+Aun siendo los valores de $I$ y $V_e$ constantes a lo largo de todo el experimento y a pesar de haber procedido meticulosamente, hemos obtenido unos valores de $\bar{C_P}$ y $\bar{C_V}$ dispares respecto a los reales.

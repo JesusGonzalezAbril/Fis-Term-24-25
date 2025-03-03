@@ -325,7 +325,7 @@ knitr::kable(
 A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuación $(7)$, teniendo en cuenta ahora que $\frac{dQ_{laboratorio}}{dt}$ viene dado por la ecuación $(8)$, obtenemos los siguientes resultados:
 
 
-```{r, echo=FALSE,  out.width= "70%", fig.align='center', fig.cap="Ajuste por mínimos cuadrados para la experiencia 2"}
+```{r, echo=FALSE,  out.width= "65%", fig.align='center', fig.cap="Ajuste por mínimos cuadrados para la experiencia 2"}
 # Datos recogidos
 T0 <- 27 # Celsius
 DeltaT3 <- T3-T0 # Variacion de temperatura
@@ -374,17 +374,7 @@ Respecto a la experiencia 2, hay que tener en cuenta principalmente el error que
 
 En relación con ambas experiencias, debemos destacar que disponíamos solamente de unos pares concretos de temperaturas con sus correspondientes resistencias en el resistor. En concreto, la tabla ofrecía una correspondencia entre temperaturas enteras ($T \in \mathbb{Z}^+$) y resistencia, por lo que a partir de las resistencias medidas por el multímetro, hemos obtenido las temperaturas por interpolación de estos pares de datos tabulados.
 
-En la propia base teórica para obtener los resultados también existen diversas fuentes de error que han de ser consideradas. La más inmediata es la aproximación de la ecuación $(7)$ que realizamos para la segunda experiencia, donde estimamos las pérdidas de calor suponiendo que la pendiente $\frac{dT_e}{dt}$ es constante (cuando, para altas temperaturas, esta aproximación deja de ser tan precisa). Para la primera experiencia, en cambio, puede inducir algo de error el suponer que las pérdidas de calor cuando el cilindro está a mayor temperatura que la ambiente son iguales al calor absorbido cuando se encuentra a menor temperatura. Aunque esto sea cierto en teoría, no hemos comprobado que sea así en la realidad, puesto que a bajas temperaturas el termistor mostraba un comportamiento anómalo. Es posible que la diferencia en los intervalos de tiempo en los que el cilindro está a menor y mayor temperatura que la ambiente pueda influir en esta equivalencia pérdidas-ganancias, pues:
-
-
-- $T<T_0: \Delta t \in (530,591) \ s$
-
-- $T>T_0: \Delta t \in (1122,1183) \ s$
-
-\color{red}
-
-- NO SÉ SI DEJAR ESTE ÚLTIMO ARGUMENTO PORQUE TRHErMODYNAMICS ONLY APPLIES TO EQUILIBRIA STATES, AND THEY ARE STATIC! (no time, so to speak).
-- DEBERÍA ESCribir QUE NO SABEMOS SI EL CONTACTO DEL CIRCUITO Y EL CIRCUITO ESTÁN BIEN Y TRANSMITEN BIEN LA INFORMACIÓN AL MULTÍMETRO
+En la propia base teórica para obtener los resultados también existen diversas fuentes de error que han de ser consideradas. La más inmediata es la aproximación de la ecuación $(7)$ que realizamos para la segunda experiencia, donde estimamos las pérdidas de calor suponiendo que la pendiente $\frac{dT_e}{dt}$ es constante (cuando, para altas temperaturas, esta aproximación deja de ser tan precisa). 
 
 De todas formas, y aunque el valor $\alpha=1$ no esté comprendido en nuestros resultados experimentales, las experiencias comprueban cualitativamente el funcionamiento de nuestro marco teórico.
 
