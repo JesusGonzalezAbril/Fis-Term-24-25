@@ -1,7 +1,7 @@
 ---
 title: "Práctica 4: Medida del calor específico del gas ideal"
 author: "Jesús González Abril, Juan Antonio Molina Blázquez, Manuel Pividal Otero"
-date: "04/02/2025"
+date: "25/02/2025"
 output: 
   pdf_document: 
     number_sections: true
@@ -12,7 +12,7 @@ header-includes:
 - \usepackage{subcaption}
 - \floatplacement{table}{H}
 - \usepackage{lipsum}
-- \usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+#- \usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
 - \pretitle{\begin{center}\huge \bfseries Física Térmica \vspace{0.5cm} \\ \Large}
 - \posttitle{\end{center}}
 - \preauthor{\begin{center} \Large}
@@ -159,45 +159,47 @@ La resistencia calefactora va conectada a un circuito de corriente alterna, con 
 
 ### Experiencia 1: Medida del calor específico molar a volumen constante
 
-1. Durante esta experiencia no se variará el volumen de aire en la jeringuilla. Mantenla en todo momento a un volumen de 0 ml. Puede usarse la llave en forma de “T” para aislar la jeringuilla de la botella. Suelta la goma que va al manómetro y espera unos minutos hasta que la presión y temperatura del aire de la botella se equilibren con las atmosféricas. Mide y anota la presión inicial marcada por el manómetro.
+1. Durante esta experiencia no se varía el volumen de aire en la jeringuilla, que se mantiene en 0 ml. Se usa la llave en forma de “T” para aislar la jeringuilla de la botella. Se suelta la goma que va al manómetro y se espera unos minutos hasta que la presión y temperatura del aire de la botella se equilibren con las atmosféricas. Medimos y anotamos la presión inicial marcada por el manómetro.
 
-2. Ajusta la goma a la salida del manómetro que está sobre el depósito de líquido. Si el aire de la botella está equilibrado, la lectura del manómetro no debería cambiar de forma apreciable.
+2. Ajustamos la goma a la salida del manómetro que está sobre el depósito de líquido. Si el aire de la botella está equilibrado, la lectura del manómetro no debería cambiar de forma apreciable.
 
-3. Cerramos el circuito eléctrico con el pulsador, apretando durante un tiempo determinado. El tiempo que mantengamos el dedo pulsado quedará grabado en el temporizador. Observa cómo la barra de líquido rojo va ascendiendo por el manómetro mientras aplicamos calor. Anotamos la presión máxima medida para poder obtener la variación de presión.
+3. Cerramos el circuito eléctrico con el pulsador, apretando durante un tiempo determinado. El tiempo que mantenemos el dedo pulsado queda grabado en el temporizador, registramos ese tiempo. La barra de líquido rojo va ascendiendo por el manómetro mientras aplicamos calor, anotamos la presión máxima medida para poder obtener la variación de presión.
 
-4. Repetimos el proceso para tiempos mayores y obtener distintas medidas de \( \Delta P \) vs \( t \). Antes de cada nueva medida, conviene desconectar la goma del manómetro y permitir que el aire de la botella vuelva a las condiciones ambientales, durante aproximadamente un minuto.
+4. Repetimos el proceso para tiempos mayores obteniendo distintas medidas de \( \Delta P \) vs \( t \). Antes de cada nueva medida, desconectamos la goma del manómetro durante aproximadamente un minuto, permitiendo que el aire de la botella vuelva a las condiciones ambientales.
 
 ### Experiencia 2: Medida del calor específico molar a presión constante
 
-1. Durante esta experiencia sí se variará el volumen de aire en la jeringuilla. Usa la llave en forma de “T” para conectar de nuevo la jeringuilla de la botella. Suelta la goma que va al manómetro y espera unos minutos hasta que la presión y temperatura del aire de la botella se equilibren con las atmosféricas. Mide y anota la presión inicial marcada por el manómetro.
+1. Durante esta experiencia sí se varía el volumen de aire en la jeringuilla. Usamos la llave en forma de “T” para conectar de nuevo la jeringuilla de la botella. Soltamos la goma que va al manómetro y esperamos unos minutos hasta que la presión y temperatura del aire de la botella se equilibren con las atmosféricas. Medimos y anotamos la presión inicial marcada por el manómetro.
 
-2. Ajusta la goma a la salida del manómetro que está sobre el depósito de líquido. Si el aire de la botella está equilibrado, la lectura del manómetro no debería cambiar de forma apreciable.
+2. Ajustamos la goma a la salida del manómetro que está sobre el depósito de líquido. Si el aire de la botella está equilibrado, la lectura del manómetro no debería cambiar de forma apreciable.
 
-3. Al calentar el gas, la presión en la botella comenzará a aumentar. Al aumentar el volumen de la jeringuilla verás como la presión en el manómetro disminuye. La estrategia consistirá en aplicar corriente para calentar durante el tiempo suficiente como para que la presión máxima del manómetro vuelva al valor anotado en el punto 1, o muy próxima. Para cada volumen, realiza varias medidas de tiempo (al menos 3) que resulten en presiones máximas próximas a la inicial.
+3. Aumentamos el volumen de la jeringuilla, de manera que la presión del manómetro cae. Al accionar el circuito el gas se calentará, la estrategia será aplicar corriente durante el tiempo suficiente como para que la presión máxima del manómetro vuelva al valor anotado en el punto 1. Para cada volumen, realizamos varias medidas de tiempo (al menos 3) que resulten en presiones máximas próximas a la inicial.
 
-4. Podemos repetir el proceso para volúmenes mayores  y obtener distintas medidas de \( \Delta V \) vs \( t \). Antes de cada nueva medida, conviene desconectar la goma del manómetro, volver a poner el volumen de la jeringuilla a 0 ml y permitir que el aire de la botella vuelva a las condiciones ambientales, durante aproximadamente un minuto.
+4. Repetimos el proceso para volúmenes mayores obteniendo así distintas medidas de \( \Delta V \) vs \( t \). Antes de cada nueva medida desconectamos la goma del manómetro, volvemos a poner el volumen de la jeringuilla a 0 ml y permitimos que el aire de la botella vuelva a las condiciones ambientales, durante aproximadamente un minuto.
 
 ## Metodología para el análisis de los datos
 
 ### Experiencia 1: Medida del calor específico molar a volumen constante
 
-1. Representa \( \Delta P \) frente a \( t \) y realiza un ajuste por mínimos cuadrados, obteniendo el valor e incertidumbre de la pendiente.
+1. Representamos \( \Delta P \) frente a \( t \) y realizamos un ajuste por mínimos cuadrados, obteniendo el valor e incertidumbre de la pendiente.
 
-2. Halla el valor del calor específico molar a volumen constante y su incertidumbre a partir de la pendiente obtenida.
+2. Hallamos el valor del calor específico molar a volumen constante y su incertidumbre a partir de la pendiente obtenida.
 
 ### Experiencia 2: Medida del calor específico molar a presión constante
 
-1. Representa \( \Delta V \) frente a \( t \) y realiza un ajuste por mínimos cuadrados, obteniendo el valor e incertidumbre de la pendiente.
+1. Representamos \( \Delta V \) frente a \( t \) y realizamos un ajuste por mínimos cuadrados, obteniendo el valor e incertidumbre de la pendiente.
 
-2. Halla el valor del calor específico molar a presión constante y su incertidumbre a partir de la pendiente obtenida.
+2. Hallamos el valor del calor específico molar a presión constante y su incertidumbre a partir de la pendiente obtenida.
 
 \clearpage
 
 # Medidas y análisis de los datos
 
+En ambos experimentos se le suministra al circuito un voltaje $V_e=4.81\ V$ y una intensidad de corriente $I=0.26\ A$. La temperatura ambiental registrada en el laboratorio es $T_{lab}=18.9^\circ C$, y el volumen de la botella es de $10\ l$. Para el cálculo de $\overline{C}_V,\overline{C}_P$ se emplea el valor $R=8.314472 \frac{Pa\ m^3}{\text{mol}\ K}$.
+
 ## Experiencia 1:
 
-Volumen constante 10 L
+Las medidas de la experiencia 1 se realizan con el sistema a volumen constante igual a $10\ l$. Siguiendo el procedimiento experimental explicado antes se obtuvieron las siguientes medidas.
 
 ```{r}
 volumen <- 10*1e-3 #m^3
@@ -213,11 +215,11 @@ P <- c(0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1)
 
 # Tabla
 data <- data.frame(t,P)
-colnames(data) <- c("Tiempo / s","Presión / mbar")
+colnames(data) <- c("t / s","$\\Delta P$ / mbar")
   
 knitr::kable(
   data,
-  caption="Tiempo que se ha mantenido el circuito cerrado para realizar cada variación de presión",
+  caption="Tiempo durante el cual el circuito queda cerrado y variación de presión registrada",
   booktabs = TRUE,
   escape = FALSE,
   row.names = FALSE,
@@ -225,9 +227,9 @@ knitr::kable(
 )
 ```
 
-A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuación (11), 
+A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuación (11), obtiendo los siguientes resultados (Figura 4):
 
-```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste por mínimos cuadrados"}
+```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste por mínimos cuadrados correspondiente a la experiencia 1."}
 
 t <- t[1:5]
 P <- P[1:5]
@@ -241,8 +243,11 @@ ordenada <- modelo_lineal$coefficients[[1]]
 inc_ordenada <- resumen$coefficients[1,2]
 
 # Graficamos los datos y la línea de ajuste
-titulo <- "Ajuste lineal de P sobre t"
-plot(t,P, main = titulo, ylab =expression(P ~ (mbar)), xlab =expression(t ~ (s)))
+titulo <- expression("Ajuste lineal de"~Delta*P~"sobre t")
+plot(t,P,
+     main = titulo,
+     ylab =expression(Delta * P ~ (mbar)),
+     xlab =expression(t ~ (s)))
 abline(modelo_lineal, col = "coral")
 
 # Cálculo de Cv
@@ -250,34 +255,32 @@ Cv <- voltaje*intensidad*R/(volumen*pendiente*100) # 1 mbar = 100 Pa
 inc_Cv <- voltaje*intensidad*R/volumen * inc_pendiente/pendiente^2 * 1/100
 ```
 
-obtiendo los siguientes resultados:
-
 - Pendiente: $a = \frac{V_e I R}{ V \overline{C}_{V}} =`r pendiente` \ \frac{mbar}{s}$
 
 - Incertidumbre pendiente: $\Delta a =`r inc_pendiente` \ \frac{mbar}{s}$
 
 Expresandolo correctamente:
 \[
-a = `r round(pendiente,2)` \pm `r signif(inc_pendiente,2)` \ \frac{mbar}{s}
+a = `r round(pendiente,4)`0 \pm `r signif(inc_pendiente,2)` \ \frac{mbar}{s}
 \]
 
 Despejando de $\overline{C}_{V}$ a partir de la pendiente como $\overline{C}_{V} = \frac{V_e I R}{ V a}$, obtenemos un valor de $\overline{C}_{V} =`r Cv` \ \frac{J}{mol \ K}$. Si además usamos la fórmula de propagación de errores \(\sigma^2 = \sum_i (\partial f / \partial x_i)^2 \sigma_i^2\), la expresión que tenemos que usar para calcular el error es:
 
-\begin{equation}
+\begin{equation*}
 \Delta \overline{C}_{V} = \frac{V_e I R}{ V } \cdot \frac{\Delta a}{a^2}
-\end{equation}
+\end{equation*}
 
 de donde obtenemos que $\Delta \overline{C}_{V} =`r inc_Cv` \ \frac{J}{mol \ K}$. Expresándolo correctamente:
 
 \[
-\overline{C}_{V} = `r round(Cv,2)` \pm `r signif(inc_Cv,2)` \ \frac{J}{mol \ K}
+\overline{C}_{V} = `r round(Cv,1)` \pm `r signif(inc_Cv,2)` \ \frac{J}{mol \ K}
 \]
 
 \clearpage
 
 ## Experiencia 2:
 
-Presión del laboratorio $P_{lab} = 1012.6$ HPa.
+En este experimento mantenemos la presión aproximadamente constante e igual a la presión del laboratorio, cuyo valor registrado fue $P_{lab} = 1012.6$ HPa. Para cada volumen se realizaron tres mediciones temporales $t_1,t_2,t_3$, tomando como tiempo final $t$ el promedio de los tres tiempos registrados, los datos se recogen en la siguiente tabla.
 
 ```{r}
 # Datos recogidos
@@ -285,15 +288,15 @@ V2 <- 1:5 #mL
 t2_1 <- c(0.411, 0.727, 1.081, 1.487, 1.874)
 t2_2 <- c(0.417, 0.840, 1.047, 1.571, 2.040)
 t2_3 <- c(0.446, 0.800, 1.052, 1.340, 1.905)
-t2 <- (t2_1 + t2_2 + t2_3)/3
+t2 <- round((t2_1+t2_2+t2_3)/3,3)
 
 # Tabla
-data <- data.frame(t2,V2)
-colnames(data) <- c("Tiempo / s","Volumen / mL")
+data <- data.frame(V2,t2_1,t2_2,t2_3,t2)
+colnames(data) <- c("$\\Delta V$ / ml","$t_1$ / s","$t_2$ / s","$t_3$ / s","$t$ / s")
   
 knitr::kable(
   data,
-  caption="Tiempo que se ha mantenido el circuito cerrado para compensar cada variación de volumen",
+  caption="Tiempos para compensar cada variación de volumen y tiempo promediado",
   booktabs = TRUE,
   escape = FALSE,
   row.names = FALSE,
@@ -301,9 +304,9 @@ knitr::kable(
 )
 ```
 
-A partir de las medidas experimentales hacemos un ajuste de acuerdo a la ecuación (14), 
+A partir de estas medidas experimentales hacemos un ajuste de acuerdo a la ecuación (14) obtiendo los siguientes resultados:
 
-```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste por mínimos cuadrados"}
+```{r, echo=FALSE,  out.width= "90%", fig.align='center', fig.cap="Ajuste por mínimos cuadrados correspondiente a la experiencia 2."}
 # Ajuste lineal
 modelo_lineal2 <- lm(V2 ~ t2)
 resumen2 <- summary(modelo_lineal2)
@@ -313,16 +316,17 @@ ordenada2 <- modelo_lineal2$coefficients[[1]]
 inc_ordenada2 <- resumen2$coefficients[1,2]
 
 # Graficamos los datos y la línea de ajuste
-titulo <- "Ajuste lineal de V sobre t"
-plot(t2,V2, main = titulo, ylab =expression(V ~ (mL)), xlab =expression(t ~ (s)))
+titulo <- expression("Ajuste lineal de"~Delta*V~"sobre t")
+plot(t2,V2,
+     main = titulo,
+     ylab =expression(Delta*V ~ (ml)),
+     xlab =expression(t ~ (s)))
 abline(modelo_lineal2, col = "coral")
 
 # Cálculo de Cv
 Cp <- voltaje*intensidad*R/(Plab*pendiente2*1e-6) # 1 mL = 1e-6 m^3
 inc_Cp <- voltaje*intensidad*R/Plab * inc_pendiente2/pendiente2^2 * 1e6
 ```
-
-obtiendo los siguientes resultados:
 
 - Pendiente: $a = \frac{V_e I R}{ P \overline{C}_{P}} =`r pendiente2` \ \frac{mL}{s}$
 
@@ -335,44 +339,82 @@ a = `r round(pendiente2,2)` \pm `r signif(inc_pendiente2,2)` \ \frac{mL}{s}
 
 Despejando de $\overline{C}_{P}$ a partir de la pendiente como $\overline{C}_{P} = \frac{V_e I R}{ P a}$, obtenemos un valor de $\overline{C}_{P} =`r Cp` \ \frac{J}{mol \ K}$. Si además usamos la fórmula de propagación de errores \(\sigma^2 = \sum_i (\partial f / \partial x_i)^2 \sigma_i^2\), la expresión que tenemos que usar para calcular el error es:
 
-\begin{equation}
+\begin{equation*}
 \Delta \overline{C}_{P} = \frac{V_e I R}{ P } \cdot \frac{\Delta a}{a^2}
-\end{equation}
+\end{equation*}
 
 de donde obtenemos que $\Delta \overline{C}_{P} =`r inc_Cp` \ \frac{J}{mol \ K}$. Expresándolo correctamente:
 
 \[
-\overline{C}_{P} = `r round(Cp,2)` \pm `r signif(inc_Cp,2)` \ \frac{J}{mol \ K}
+\overline{C}_{P} = `r round(Cp,1)` \pm `r signif(inc_Cp,2)` \ \frac{J}{mol \ K}
 \]
 
 \clearpage
 
 # Resultados
+
 ```{r}
+Cv_teorico <- 5/2*R
+Cp_teorico <- 7/2*R
+
 # Cálculo de R
 Rexp <- Cp - Cv
 inc_Rexp <- sqrt(inc_Cp^2 + inc_Cv^2)
+
+error_relativo <- abs(R-Rexp)/R
+
+gamma <- Cp/Cv
+inc_gamma <- sqrt( (inc_Cp/Cv)^2 + (inc_Cv*Cp/Cv^2)^2 )
 ```
-
-Como $R = \overline{C}_{P} - \overline{C}_{V}$, el error que estamos cometiendo es $\Delta R = \sqrt{\Delta \overline{C}_{P}^2 + \Delta \overline{C}_{V}^2}$. Haciendo los cálculos correspondientes y expresandolo correctamente el resultado llegamos a que:
-
+En primer lugar, los calores molares obtenidos experimentalmente han sido
 \[
-R = `r round(Rexp,2)` \pm `r signif(inc_Rexp,2)` \ \frac{J}{mol \ K}
+\overline{C}_{V}= `r round(Cv,1)` \pm `r signif(inc_Cv,2)`\ \frac{J}{mol \ K}
+\quad
+\overline{C}_{P}= `r round(Cp,1)` \pm `r signif(inc_Cp,2)`\ \frac{J}{mol \ K}
+\]
+Si suponemos que el aire es un gas ideal diatómico (ya que la mayor parte de la atmósfera está compuesta de $N_2$) deberíamos tener
+\begin{align*}
+\overline{C}_{V}^{teo}=\frac{5R}{2}\ \frac{J}{mol \ K}=`r Cv_teorico`\ \frac{J}{mol \ K} \\
+\overline{C}_{P}^{teo}=\frac{7R}{2}\ \frac{J}{mol \ K}=`r Cp_teorico`\ \frac{J}{mol \ K}
+\end{align*}
+con lo cual vemos que los calores obtenidos experimentalmente no se acercan a los teóricos.
+
+En cuanto a la constante de los gases ideales, la podemos calcular como $R = \overline{C}_{P} - \overline{C}_{V}$. En este caso, el error que estamos cometiendo es
+\[
+\Delta R = \sqrt{\Delta {\overline{C}_{P}}^2 + \Delta {\overline{C}_{V}}^2}
+\]
+Haciendo los cálculos correspondientes y expresando correctamente el resultado llegamos a que:
+\[
+R = `r round(Rexp,1)` \pm `r signif(inc_Rexp,2)` \ \frac{J}{\text{mol}\ K}
 \]
 
-mientras que el valor real es, aproximadamente:
-$$
-R = 8.3145 \ \frac{J}{mol \cdot K}
-$$
-obteniendo así un error relativo de:
-$$
-\mathcal{E}_{R}(R) = \frac{|R^{teor}-R^{exp}|}{|R^{teor}|}\simeq 1.34
-$$
-además de que un signo negativo en la constante de los gases ideales no tiene coherencia física, pues $P,V,n,T \geq 0$ y, para estos gases, $PV=nRT$.
+mientras que el valor real es, aproximadamente
+\[
+R^{teo} = 8.3145 \ \frac{J}{\text{mol}\ K}
+\]
+obteniendo así un error relativo:
+\[
+\varepsilon_{rel}(R) = \frac{|R^{teo}-R^{exp}|}{|R^{teo}|}\approx `r round(error_relativo,2)`
+\]
+lo cual indica claramente que el experimento no ha sido exitoso. Además, un valor negativo para la constante de los gases ideales no tiene sentido físico, pues $P,V,n,T \geq 0$ y, para estos gases se debe cumplir la ecuación de estado $PV=nRT$.
+
+Finalmente, el coeficiente de dilatación según los datos experimentales se calcula según la fórmula $\gamma = \frac{\overline{C}_P}{\overline{C}_V}$, con un error
+\[
+\Delta\gamma=\sqrt{\Big(\frac{\Delta\overline{C}_P}{\overline{C}_V}\Big)^2+\Big(\Delta\overline{C}_V\frac{\overline{C}_P }{\overline{C}_V^2}\Big)^2} 
+\]
+Realizando los cálculos correspondientes según los datos experimentales obtenemos
+\[
+\gamma = `r round(gamma,3)`\pm`r signif(inc_gamma,2)`
+\]
+de nuevo muy lejano al valor teórico para un gas ideal diatómico que es
+\[
+\gamma^{teo}=\frac{7}{5}=1.4
+\]
+
 
 # Discusión y conclusiones de los resultados
 
-Dados los resultados obtenidos y conociendo el valor real de la constante $R$, resulta obvio que deben existir fuentes de error más allá de las que manifiesta la incertidumbre en los resultados y que intervienen en los valores experimentales, reduciendo así su fiabilidad. Como no conocemos qué tipo de gas ideal es el que está contenido en nuestra botella, usamos el valor de $R$ en las comparativas en vez de los de los calores específicos a presión y volumen constante.
+Dados los resultados obtenidos y teniendo en cuenta especialmente el valor sin sentido obtenido para la constante $R$, resulta obvio que debe existir un error de método en el experimento realizado. 
 
 Mencionemos, primero, las posibles fuentes de error procedentes de nuestros instrumentos de medida. En el manómetro, además de entrañar cierta dificultad para determinar cuándo proporcionaba un valor nulo de la diferencia de presión, también pudimos observar que ofrecía distintos valores de diferencia de presión para experiencias prácticamente idénticas. Esto es, para valores similares de tiempo en la primera experiencia o volumen extraído en la segunda. Además, en esta segunda experiencia, debemos destacar que el instrumento utilizado (jeringuilla) disponía de una precisión del mismo orden que las magnitudes manejadas ($1mL$), induciendo así mayores errores relativos.
 
