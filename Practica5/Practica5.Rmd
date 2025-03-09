@@ -1,0 +1,225 @@
+---
+title: "Práctica 5: Discos de Lees"
+author: "Jesús González Abril, Juan Antonio Molina Blázquez, Manuel Pividal Otero"
+date: "04/02/2025"
+output: 
+  pdf_document: 
+    number_sections: true
+    fig_caption: true
+header-includes:
+- \usepackage{titling}
+- \usepackage{float}
+- \usepackage{subcaption}
+- \floatplacement{table}{H}
+- \usepackage{lipsum}
+- \usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+- \pretitle{\begin{center}\huge \bfseries Física Térmica \vspace{0.5cm} \\ \Large}
+- \posttitle{\end{center}}
+- \preauthor{\begin{center} \Large}
+- \postauthor{\vspace{0.5cm} \\ Profesor Giuseppe Raguní \end{center}}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Objetivos
+
+- Determinación del coeficiente de conductividad térmica de algunos materiales.
+
+# Introducción
+
+La **corriente calorífica** \(J_{q}\) a través de una determinada sección recta, de abscisa \(x\), es directamente proporcional al área de dicha sección recta y al cambio de temperatura por unidad de longitud a lo largo de la barra o gradiente de temperatura; así, podemos escribir:
+
+\begin{equation}
+ J_{q} = -k S \frac{\delta \theta}{\delta x} \ \ [JS^{-1}]
+\end{equation}
+
+El signo negativo indica que la energía fluye en la dirección en que disminuye la temperatura. La constante de proporcionalidad \(k\) es un parámetro característico de cada material, denominado **coeficiente de conductividad térmica**, cuyo valor siempre es positivo. En particular, la corriente calorífica que fluye por un material de forma cilíndrica en función de las temperaturas de sus extremos:
+
+\begin{equation}
+  J_{q} = k S \frac{\theta_{1} - \theta_{2}}{L} \ \ [JS^{-1}]
+\end{equation}
+
+Sabiendo que \(\delta Q = J_{q} \cdot \delta t\) podemos decir que:
+
+\begin{equation}
+  \Delta Q = k S \frac{\Delta \theta}{h} \Delta t \ \ [J]
+\end{equation}
+
+Donde \(S\) es el área transversal a la dirección de flujo de calor; \(\Delta \theta\), es la diferencia de temperatura entre las caras del material; \(h\), es el espesor del material; y \(k\), es el coeficiente de conductividad térmica.
+
+Para medir la conductividad térmica de un material, es necesario saber la cantidad de calor que fluye por él. Para ello, en el experimento, colocamos el material objeto de estudio entre una cámara de vapor de agua (\(\theta_{1} = 100^{o}C\)) y un bloque de hielo (\(\theta_{2} = 0^{o}C\)) y medimos la masa \(m\) de hielo derretido: por lo tanto, la cantidad de calor transmitido será \(\Delta Q = m L_{f}\). Sustituyendo se obtiene:
+
+\begin{equation}
+  k = \frac{m L_{f} h}{S \Delta \theta \Delta t} \ \ [JK^{-1}s^{-1}m^{-1}]
+\end{equation}
+
+siendo \(L_{f} = 80 \ \ cal \ g^{-1}\) el calor latente de fusión del agua y \(\Delta \theta = 100^{o}C\). Si llamamos \(R \equiv m / \Delta t\) la masa de hielo derretida por unidad de tiempo, se obtiene:
+
+\begin{equation}
+  k = \frac{R L_f h}{S \Delta \theta} \ \ [JK^{-1}s^{-1}m^{-1}]
+\end{equation}
+
+# Dispositivo experimental y metodología
+
+## Instrumentación
+
+- Moldes de hielo.
+- Placas de distintos materiales: yeso, metacrilato, madera y aluminio.
+- Generador de vapor.
+- Balanza para pesar la masa de hielo derretido.
+- Cámara de vapor con un soporte para la muestra.
+- Recipientes para recoger el hielo fundido y el vapor condensado.
+- Gomas para conectar el generador de vapor con la cámara.
+- Un pie de rey para medir los diámetros de los cilindros de hielo.
+- Una regla para medir la altura de los bloques de hielo.
+- Un cronómetro, para contabilizar el tiempo transcurrido.
+
+## Montaje experimental
+
+Antes de empezar la práctica, es necesario tener preparados los moldes de hielo. Para poder sacar los bloques de hielo de sus moldes con facilidad, poner el molde bajo agua templada.
+
+En principio conectaremos mediante una goma el generador de vapor al primer orificio de la parte superior de la cámara, para que almacene el vapor. En el segundo orificio se expulsa el vapor condensado (procurar colocar un recipiente para el agua que caiga). Para cada una de las medidas utilizaremos una placa de distinto material. Para colocar la placa en el soporte, no es necesario desatornillar ambas pinzas metálicas, tan sólo una de ellas.
+
+Una vez bien colocada la placa, procurar que esté bien sujeta y esperar que se haya generado vapor suficiente. Tener precaución al manipular la cámara con soporte una vez generado el vapor.
+
+![Esquema experimental](figuras/esquema_experimental.png){width="300"}
+
+## Metodología
+
+1. Una vez tengamos nuestro cilindro de hielo, cada vez que vayamos a empezar una de las medidas, medir su diámetro, \(d_0\), y su altura, \(h\).
+
+2. Pesamos el recipiente vacío en el que vayamos a recolectar la masa de hielo fundido.
+
+3. Una vez hayamos realizado el montaje experimental adecuadamente, con una de las placas de un material determinado, **conectamos el generador** y esperamos a que haya suficiente vapor almacenado, esto es, hasta que comiencen a caer las primeras gotas de **vapor condensado** (por el segundo orificio).
+
+4. Colocamos el cilindro sobre la placa (apoyado entre las dos pestañas negras), asegurándose que el hielo pueda moverse libremente.
+
+5. Contamos **diez minutos** desde que colocamos el bloque de hielo sobre la placa hasta que lo retiramos (\(\Delta t = 10min\)). Si el material tiene una alta conductividad térmica, como ocurre con el aluminio, puede que el tiempo medido sea menor al propuesto.
+
+6. Durante ese tiempo, en el recipiente antes nombrado, recolectamos la masa de hielo fundido, \(m\), y pesamos el contenido agua+vaso.
+
+7. Para empezar de nuevo el proceso para otra placa de un material distinto, medimos de nuevo el diámetro y la altura del cilindro de hielo y repetimos los pasos anteriores.
+
+## Metodología para el análisis de los datos
+
+- A partir de las masas de hielo derretidas en cada una de las experiencias, \(m_n\), donde \(n\) designa cada uno de los experimentos realizados, y el tiempo transcurrido \(\Delta t\), calculamos la velocidad a la que se derrite en cada uno de los casos \(R_n = m_n / \Delta t\).
+
+- A partir de los datos obtenidos y con la fórmula (5) proporcionada en **Teoría**, obtenemos el coeficiente de conductividad térmica para cada uno de los materiales \(k_n\).
+
+\clearpage
+
+# Medidas y análisis de los datos
+
+La masa del recipiente donde caerá el hielo derretido es de $M_r=106.7$ g.
+
+Ahora, para cada material problema, medimos tanto su espesor $h$ co o díametro $d_0$.
+
+```{r}
+# Datos recogidos
+i <- c(1,2,3,4,5)
+materiales <- c("Yeso", "Vidrio", "Madera", "Policarbonato", "Metacrilato")
+d <- c(78.85,75,47.90,73.20,71.75) #mm
+h <- c(5.85,6.10,6.30,6.35,6.15) #mm
+
+# Tabla
+data <- data.frame(i,materiales,d,h)
+colnames(data) <- c("Medida","Materiales","d / mm","h / mm")
+  
+knitr::kable(
+  data,
+  caption="Espesores y diámetros de los distintos moldes de hielo. Masa de agua.",
+  booktabs = TRUE,
+  escape = FALSE,
+  row.names = FALSE,
+  align="c"
+)
+```
+
+A partir de las masas de hielo derretidas en cada una de las experiencias, y el tiempo transcurrido, donde \(\Delta t = 5\) min para todas nuestras experiencias, calculamos la velocidad a la que se derrite en cada uno de los casos mediante la fórmula \(R_n = m_n / \Delta t\). Si además usamos la fórmula de propagación de errores \(\sigma^2 = \sum_i (\partial f / \partial x_i)^2 \sigma_i^2\), la expresión que tenemos que usar para calcular el error en la velocidad es:
+
+\begin{equation*}
+\Delta (R_n)^2 = \Big( \frac{\Delta m}{\Delta t} \Big)^2 + \Big( \frac{m}{(\Delta t)^2} \cdot \Delta (\Delta t) \Big)^2
+\end{equation*}
+
+donde consideramos $\Delta m = 0.1$ g (la precisión de la balanza) y un error en la medida de tiempos de $\Delta (\Delta t) = 0.5$ s.
+
+```{r}
+# Datos recogidos
+mtot <- c(20.3,24.1,18.2,3.70,17.9)+106.7 #masa con recipiente, gramos
+Mrec <- 106.7 #masa del recipiente, gramos
+m <- mtot - Mrec #masa de agua fundida, gramos
+dt <- 5*60 #s
+
+# Cálculo de las velocidades de fusión
+R <- m/dt #g/s
+inc_m <- 0.1 #g
+inc_t <- 0.5 #s
+inc_R <- sqrt((inc_m/dt)^2 + (m/dt^2*inc_t)^2)
+
+# Tabla
+data <- data.frame(i,materiales,mtot,m,R,inc_R)
+colnames(data) <- c("Medida","Materiales","$m_{tot}$ / g","m / g", "R / g/s", "$\\Delta R$ / g/s")
+  
+knitr::kable(
+  data,
+  caption="Masa de agua derretida con y sin contar la del recipiente de cada uno de los experimentos. Velocidades a las que se derriten",
+  booktabs = TRUE,
+  escape = FALSE,
+  row.names = FALSE,
+  align="c"
+)
+```
+
+A partir de los datos obtenidos y con la fórmula (5) proporcionada en el marco teórico, obtenemos el coeficiente de conductividad térmica para cada uno de los materiales \(k_n\). Si volvemos a usar la fórmula de propagación de errores, la expresión que tenemos que usar para calcular el error en estas medidas es:
+
+$$
+\Delta k^2 = \Big( \frac{L_fh}{S\Delta \theta} \cdot \Delta R \Big)^2 + \Big( \frac{RL_f}{S\Delta \theta} \cdot \Delta h \Big)^2 + \Big( \frac{RL_fh}{S^2\Delta \theta} \cdot \Delta S \Big)^2 + \Big( \frac{RL_f}{S (\Delta \theta)^2} \cdot \Delta (\Delta \theta) \Big)^2
+$$
+donde usamos que como $S = \pi(\frac{d}{2})^2$, entonces $\Delta S = \frac{\pi}{2} d \Delta d$. Además, las incertidumbres en las longitudes las tomaremos como las de la precisión de la regla $\Delta h = \Delta d = 1$ mm, y como error en la subida de temperatura #TODO
+
+```{r}
+# Datos recogidos
+h <- h*1e-3 #m
+d <- d*1e-3 #m
+Lf <- 80 * 4.184 #J/g
+incr_theta <- 100 #ºC
+
+inc_d <- 1*1e-3 #mm
+inc_h <- 1*1e-3 #mm
+inc_incr_theta <- 0.1 #ºC
+
+S <- pi*(d/2)^2 #m^2
+inc_S <- pi/2*d*inc_d #m^2
+
+# Calculos de los coeficientes con sus errores
+k <- R*Lf*h/(S*incr_theta)
+
+term1 <- ( (Lf * h) / (S * incr_theta) * inc_R )^2
+term2 <- ( (R * Lf) / (S * incr_theta) * inc_h )^2
+term3 <- ( (R * Lf * h) / (S^2 * incr_theta) * inc_S )^2
+term4 <- ( (R * Lf) / (S * (incr_theta)^2) * inc_incr_theta )^2
+inc_k <- sqrt(term1 + term2 + term3 + term4)
+
+# Tabla
+data <- data.frame(i,materiales,k, inc_k)
+colnames(data) <- c("Medida","Materiales","k / -","$\\Delta k$ / -")
+  
+knitr::kable(
+  data,
+  caption="Coeficientes de conductividad térmica para cada material",
+  booktabs = TRUE,
+  escape = FALSE,
+  row.names = FALSE,
+  align="c"
+)
+```
+
+\clearpage
+
+# Resultados
+SO TO SPEAK
+
+# Discusión y conclusiones de los resultados
+SO TO SPEAK
