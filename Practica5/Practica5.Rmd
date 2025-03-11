@@ -112,16 +112,19 @@ Una vez bien colocada la placa, procurar que esté bien sujeta y esperar que se 
 
 # Medidas y análisis de los datos
 
-La masa del recipiente donde caerá el hielo derretido es de $M_r=106.7$ g.
-
-Ahora, para cada material problema, medimos tanto su espesor $h$ co o díametro $d_0$.
+La masa del recipiente donde caerá el hielo derretido es de $M_r=106.5$ g. Ahora, medimos los grosores de cada placa que vamos a utilizar. Debido a que estas placas no presentan un grosos uniforme, hemos tomado varias grosores y nos hemos quedado con la media. Además, antes y despues de cada experiencia hemos tomado medidas del diámetro del bloque de hielo, y nos hemos quedado con su medía en cada experiencia. Los datos obtenidos se recogen en la siguiente tabla:
 
 ```{r}
 # Datos recogidos
-i <- c(1,2,3,4,5)
-materiales <- c("Yeso", "Vidrio", "Madera", "Policarbonato", "Metacrilato")
-d <- c(78.85,75,47.90,73.20,71.75) #mm
-h <- c(5.85,6.10,6.30,6.35,6.15) #mm
+i <- c(1,2,3,4)
+materiales <- c("Experimento 1", "Experimento 2", "Experimento 3", "Experimento 4")
+
+d <- c(80.05+76.5, 76.5+74.8, 74.8+73.95, 73.95 + 70.5)/2 #mm
+h1 <- c(6.55, 6.35, 6.25, 6.35)
+h2 <- c(10.2, 9.9, 10.0, 9.85)
+h3 <- c(6.3, 7.15, 6.7, 7.75)
+h4 <- c(5.85, 5.85, 5.95, 5.90)
+h <- c(mean(h1), mean(h2), mean(h3), mean(h4)) #mm
 
 # Tabla
 data <- data.frame(i,materiales,d,h)
@@ -129,7 +132,7 @@ colnames(data) <- c("Medida","Materiales","d / mm","h / mm")
   
 knitr::kable(
   data,
-  caption="Espesores y diámetros de los distintos moldes de hielo. Masa de agua.",
+  caption="Espesores de las placas y diámetros del bloque de hielo en cada experiencia.",
   booktabs = TRUE,
   escape = FALSE,
   row.names = FALSE,
@@ -137,7 +140,7 @@ knitr::kable(
 )
 ```
 
-A partir de las masas de hielo derretidas en cada una de las experiencias, y el tiempo transcurrido, donde \(\Delta t = 5\) min para todas nuestras experiencias, calculamos la velocidad a la que se derrite en cada uno de los casos mediante la fórmula \(R_n = m_n / \Delta t\). Si además usamos la fórmula de propagación de errores \(\sigma^2 = \sum_i (\partial f / \partial x_i)^2 \sigma_i^2\), la expresión que tenemos que usar para calcular el error en la velocidad es:
+A partir de las masas de hielo derretidas en cada una de las experiencias, y el tiempo transcurrido, donde \(\Delta t = 7\) min para todas nuestras experiencias, calculamos la velocidad a la que se derrite en cada uno de los casos mediante la fórmula \(R_n = m_n / \Delta t\). Si además usamos la fórmula de propagación de errores \(\sigma^2 = \sum_i (\partial f / \partial x_i)^2 \sigma_i^2\), la expresión que tenemos que usar para calcular el error en la velocidad es:
 
 \begin{equation*}
 \Delta (R_n)^2 = \Big( \frac{\Delta m}{\Delta t} \Big)^2 + \Big( \frac{m}{(\Delta t)^2} \cdot \Delta (\Delta t) \Big)^2
@@ -147,10 +150,10 @@ donde consideramos $\Delta m = 0.1$ g (la precisión de la balanza) y un error e
 
 ```{r}
 # Datos recogidos
-mtot <- c(20.3,24.1,18.2,3.70,17.9)+106.7 #masa con recipiente, gramos
-Mrec <- 106.7 #masa del recipiente, gramos
+mtot <- c(124.3,129.7,128.2, 130.7) #masa con recipiente, gramos
+Mrec <- 106.5 #masa del recipiente, gramos
 m <- mtot - Mrec #masa de agua fundida, gramos
-dt <- 5*60 #s
+dt <- 7*60 #s
 
 # Cálculo de las velocidades de fusión
 R <- m/dt #g/s
@@ -175,7 +178,7 @@ knitr::kable(
 A partir de los datos obtenidos y con la fórmula (5) proporcionada en el marco teórico, obtenemos el coeficiente de conductividad térmica para cada uno de los materiales \(k_n\). Si volvemos a usar la fórmula de propagación de errores, la expresión que tenemos que usar para calcular el error en estas medidas es:
 
 $$
-\Delta k^2 = \Big( \frac{L_fh}{S\Delta \theta} \cdot \Delta R \Big)^2 + \Big( \frac{RL_f}{S\Delta \theta} \cdot \Delta h \Big)^2 + \Big( \frac{RL_fh}{S^2\Delta \theta} \cdot \Delta S \Big)^2 + \Big( \frac{RL_f}{S (\Delta \theta)^2} \cdot \Delta (\Delta \theta) \Big)^2
+\Delta k^2 = \Big( \frac{L_fh}{S\Delta \theta} \cdot \Delta R \Big)^2 + \Big( \frac{RL_f}{S\Delta \theta} \cdot \Delta h \Big)^2 + \Big( \frac{RL_fh}{S^2\Delta \theta} \cdot \Delta S \Big)^2
 $$
 donde usamos que como $S = \pi(\frac{d}{2})^2$, entonces $\Delta S = \frac{\pi}{2} d \Delta d$. Además, las incertidumbres en las longitudes las tomaremos como las de la precisión de la regla $\Delta h = \Delta d = 1$ mm, y como error en la subida de temperatura #TODO
 
@@ -188,7 +191,6 @@ incr_theta <- 100 #ºC
 
 inc_d <- 1*1e-3 #mm
 inc_h <- 1*1e-3 #mm
-inc_incr_theta <- 0.1 #ºC
 
 S <- pi*(d/2)^2 #m^2
 inc_S <- pi/2*d*inc_d #m^2
@@ -199,8 +201,7 @@ k <- R*Lf*h/(S*incr_theta)
 term1 <- ( (Lf * h) / (S * incr_theta) * inc_R )^2
 term2 <- ( (R * Lf) / (S * incr_theta) * inc_h )^2
 term3 <- ( (R * Lf * h) / (S^2 * incr_theta) * inc_S )^2
-term4 <- ( (R * Lf) / (S * (incr_theta)^2) * inc_incr_theta )^2
-inc_k <- sqrt(term1 + term2 + term3 + term4)
+inc_k <- sqrt(term1 + term2 + term3)
 
 # Tabla
 data <- data.frame(i,materiales,k, inc_k)
@@ -219,7 +220,10 @@ knitr::kable(
 \clearpage
 
 # Resultados
-SO TO SPEAK
+Expresando correctamente los resultado llegamos a que:
+\[
+k1 = `r round(k[1],3)` \pm `r signif(inc_k[1],2)` \ \frac{J}{\text{m}\ K}
+\]
 
 # Discusión y conclusiones de los resultados
 SO TO SPEAK
