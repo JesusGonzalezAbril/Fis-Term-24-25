@@ -12,7 +12,7 @@ header-includes:
 - \usepackage{subcaption}
 - \floatplacement{table}{H}
 - \usepackage{lipsum}
-- \usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+#- \usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
 - \pretitle{\begin{center}\huge \bfseries Física Térmica \vspace{0.5cm} \\ \Large}
 - \posttitle{\end{center}}
 - \preauthor{\begin{center} \Large}
@@ -297,6 +297,8 @@ k_{\text{Madera}} \quad\text{dentro del rango}\quad 0.13-0.29\ \frac{W}{mK}
 k_{\text{Policarbonato}} = 0.21\ \frac{W}{mK}
 \]
 
+\clearpage
+
 # Discusión y conclusiones de los resultados
 
 Vemos que los resultados parecen corresponder con los materiales siguientes:
@@ -311,4 +313,6 @@ Para los materiales 3 y 4 obtenemos valores similares para $k_n$, pero por la ap
 
 Por lo general podemos considerar que los dos primeros resultados son bastante buenos, especialmente teniendo en cuenta que la literatura no ofrece valores fijos para estos coeficientes, sino que suele dar rangos dentro de los cuales puede encontrarse el valor de $k$. En cuanto a los materiales de las placas 3 y 4 los resultados son peores, pero esto es hasta cierto punto esperable puesto que conforme avanza el experimento el cilindro se va deformando ligeramente al derretirse. De nuevo, los valores teóricos con los que comparamos tampoco son muy certeros, por lo que los resultados experimentales obtenidos son hasta cierto punto satisfactorios.
 
-En cuanto a las posibles fuentes de error, hay varios factores a considerar. En primer lugar, los tiempos no fueron de exactamente 7 minutos para todas las experiencias, aunque se procuró que $\Delta t$ se mantuviera lo más próximo posible a este valor. Por otro lado, cierta parte del agua que se fundía quedaba en la superficie del cilindro, y otra pequeña porción de agua líquida quedaba en la superficie de la placa a estudiar, por lo que las medidas de masa fundida son algo menores que la verdadera masa fundida en cada experiencia. Otro factor a tener en cuenta es el hecho de que la base del cilindro de hielo no era completamente plana ni circular, por lo que al asumir que la superficie en contacto es un círculo se está realizando una aproximación que no es del todo precisa. También es relevante el hecho de que no se disponía de una sonda que midiera la temperatura en el interior de la cámara de vapor, por lo que es imposible confirmar si realmente había $100^\circ$C.
+En cuanto a las posibles fuentes de error, hay varios factores a considerar. En primer lugar, los tiempos no fueron de exactamente 7 minutos para todas las experiencias, aunque se procuró que $\Delta t$ se mantuviera lo más próximo posible a este valor. Por otro lado, cierta parte del agua que se fundía quedaba en la superficie del cilindro, y otra pequeña porción de agua líquida quedaba en la superficie de la placa a estudiar, por lo que las medidas de masa fundida son algo menores que la verdadera masa fundida en cada experiencia. Otro factor a tener en cuenta es el hecho de que la base del cilindro de hielo no era completamente plana ni circular, por lo que al asumir que la superficie en contacto es un círculo se está realizando una aproximación que no es del todo precisa.  
+
+También es relevante el hecho de que no se disponía de una sonda que midiera la temperatura en el interior de la cámara de vapor, por lo que es imposible confirmar si realmente había $100^\circ$C. Además, a la hora de realizar las medidas del diámetro del cilindro, nuestro pie de rey se hundía ligeramente en la superficie del bloque de hielo, fundiéndolo y disminuyendo esta longitud. Esto provocaba una diferencia entre el diámetro medido a cierta altura y el del resto del bloque de hielo.
