@@ -1,5 +1,5 @@
 ---
-title: "Práctica n: Polla y Huevos"
+title: "Práctica n: Titulo"
 author: "Jesús González Abril, Juan Antonio Molina Blázquez, Manuel Pividal Otero"
 date: "dd/mm/2025"
 output: 
